@@ -73,5 +73,13 @@ async function storeForSync(data) {
 
 // Newsletter subscription
 export async function subscribeNewsletter(email) {
-  return submitForm({ email, type: 'newsletter' }, '/api/newsletter');
+  // TODO: Replace with actual endpoint when backend is ready
+  // return submitForm({ email, type: 'newsletter' }, '/api/newsletter');
+  
+  // Simulated for now
+  await new Promise(r => setTimeout(r, 1000));
+  return { success: true };
 }
+// export async function subscribeNewsletter(email) {
+//   return submitForm({ email, type: 'newsletter' }, '/api/newsletter');
+// }

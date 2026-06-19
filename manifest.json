@@ -2,7 +2,7 @@
   "name": "HUNA — Learn. Build. Execute.",
   "short_name": "HUNA",
   "description": "A community where people come together to learn, build, and execute. Here, we grow.",
-  "start_url": "/",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0D132B",
   "theme_color": "#0D132B",

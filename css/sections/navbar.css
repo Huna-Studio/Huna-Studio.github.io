@@ -265,6 +265,18 @@
   .navbar-actions .btn {
     display: none;
   }
+  
+  /* Ensure theme toggle and lang toggle are visible */
+  .navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+  
+  .theme-toggle,
+  .lang-toggle {
+    display: flex;
+  }
 }
 
 @media (max-width: 767px) {
@@ -275,7 +287,16 @@
   .navbar-logo img {
     height: 32px;
   }
-}
+  
+  /* Smaller toggles on very small screens */
+  .theme-toggle,
+  .lang-toggle {
+    width: 36px;
+    height: 36px;
+    padding: var(--space-1-5);
+    font-size: var(--text-xs);
+  }
+} 
 
 /* Navbar entrance animation */
 @keyframes navbarSlideDown {

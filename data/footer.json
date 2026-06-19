@@ -33,8 +33,8 @@
     }
   ],
   "bottom": {
-    "copyright_en": "© 2026 HUNA Community. All rights reserved.",
-    "copyright_ar": "© 2026 مجتمع هُنا. جميع الحقوق محفوظة.",
+    "copyright_en": "HUNA Community. All rights reserved.",
+    "copyright_ar": "مجتمع هُنا. جميع الحقوق محفوظة.",
     "links": [
       { "label_en": "Privacy Policy", "label_ar": "سياسة الخصوصية", "href": "#" },
       { "label_en": "Terms of Service", "label_ar": "شروط الخدمة", "href": "#" }

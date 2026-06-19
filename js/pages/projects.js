@@ -12,7 +12,6 @@ const itemsPerPage = 6;
 let currentFilter = 'all';
 let searchQuery = '';
 
-
 export async function loadProjects() {
   const container = document.getElementById('projects-grid');
   if (!container) return;
@@ -187,6 +186,7 @@ function attachSearchEvents() {
   });
 }
 
+// Exposed for onclick handlers
 window.changeProjectPage = function(page) {
   currentPage = page;
   renderProjects();
@@ -257,9 +257,13 @@ window.showProjectDetails = function(projectId) {
 
 export async function initProjectsPage() {
   await loadProjects();
+  
+  // Attach click handler for project cards (moved from module level)
+  const grid = document.getElementById('projects-grid');
+  if (grid) {
+    grid.addEventListener('click', (e) => {
+      // Handle card clicks if needed
+      console.log('Project grid clicked', e.target);
+    });
+  }
 }
-
-
-document.querySelector("#projects-grid").addEventListener("click", (e) => {
-  console.log("Hi");
-})

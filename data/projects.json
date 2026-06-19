@@ -11,7 +11,7 @@
       "difficulty_ar": "سهل",
       "contributors": ["Mohammed G."],
       "github": "https://github.com/Huna-Studio/dory-pet-store",
-      "images": [],
+      "images": ["/assets/images/dory.png"],
       "status": "completed",
       "status_ar": "مكتمل",
       "featured": true

@@ -9,7 +9,7 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
-  background: var(--color-bg);
+  background: var(--bg-primary);
 }
 
 .coming-soon-bg {
@@ -52,7 +52,7 @@
   gap: var(--space-3);
   margin-bottom: var(--space-12);
   text-decoration: none;
-  color: var(--color-text-primary);
+  color: var(--text-primary);
   font-size: var(--text-xl);
   font-weight: 700;
 }
@@ -75,7 +75,7 @@
 .coming-soon-icon {
   width: 48px;
   height: 48px;
-  color: var(--color-accent);
+  color: var(--accent);
   position: relative;
   z-index: 1;
   animation: rocketFloat 3s ease-in-out infinite;
@@ -94,7 +94,7 @@
 .coming-soon-orbit {
   position: absolute;
   inset: 0;
-  border: 2px dashed var(--color-border);
+  border: 2px dashed var(--border);
   border-radius: 50%;
   animation: orbitSpin 20s linear infinite;
 }
@@ -111,14 +111,14 @@
 .coming-soon-title {
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 800;
-  color: var(--color-text-primary);
+  color: var(--text-primary);
   margin-bottom: var(--space-4);
   line-height: 1.1;
 }
 
 .coming-soon-desc {
   font-size: var(--text-lg);
-  color: var(--color-text-secondary);
+  color: var(--text-secondary);
   margin-bottom: var(--space-10);
   line-height: 1.7;
 }

@@ -2,7 +2,8 @@
    HUNA Volunteer Page Styles
    ============================================ */
 
-.volunteer-page .page-header {
+/* .volunteer-page .page-header { */
+[data-page="volunteer"] .page-header {
   padding-top: 140px;
   padding-bottom: var(--space-16);
   text-align: center;

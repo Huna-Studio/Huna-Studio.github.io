@@ -3,6 +3,7 @@ const STATIC_CACHE = 'huna-static-v1';
 const DYNAMIC_CACHE = 'huna-dynamic-v1';
 const IMAGE_CACHE = 'huna-images-v1';
 const DOCS_CACHE = 'huna-docs-v1';
+const CDN_CACHE = 'huna-cdn-v1'; // NEW: Separate cache for CDN
 
 const STATIC_ASSETS = [
   '/',
@@ -27,17 +28,32 @@ const CDN_ASSETS = [
   'https://unpkg.com/lucide@latest/dist/umd/lucide.min.js'
 ];
 
+async function cacheAll(cacheName, urls) {
+  const cache = await caches.open(cacheName);
+  const results = await Promise.allSettled(
+    urls.map(async (url) => {
+      try {
+        const response = await fetch(url, { mode: 'no-cors' });
+        if (response.ok || response.type === 'opaque') {
+          await cache.put(url, response);
+        }
+      } catch (e) {
+        console.warn('Failed to cache:', url, e.message);
+      }
+    })
+  );
+  return results;
+}
+
+
 // Install — cache static assets
 self.addEventListener('install', (event) => {
   self.skipWaiting();
   event.waitUntil(
-    caches.open(STATIC_CACHE).then((cache) => {
-      return cache.addAll(STATIC_ASSETS);
-    }).then(() => {
-      return caches.open(STATIC_CACHE).then((cache) => {
-        return cache.addAll(CDN_ASSETS);
-      });
-    })
+    Promise.all([
+      cacheAll(STATIC_CACHE, STATIC_ASSETS),
+      cacheAll(CDN_CACHE, CDN_ASSETS)
+    ])
   );
 });
 
@@ -63,11 +79,26 @@ self.addEventListener('fetch', (event) => {
   if (request.method !== 'GET') return;
 
   // Strategy: Cache First for static assets
-  if (STATIC_ASSETS.includes(url.pathname) || CDN_ASCLUDES?.includes(request.url)) {
+  if (STATIC_ASSETS.includes(url.pathname)) {
     event.respondWith(
       caches.match(request).then((cached) => {
         return cached || fetch(request).then((response) => {
           return caches.open(STATIC_CACHE).then((cache) => {
+            cache.put(request, response.clone());
+            return response;
+          });
+        });
+      })
+    );
+    return;
+  }
+
+  // Strategy: Cache First for CDN assets (FIXED: was CDN_ASCLUDES)
+  if (CDN_ASSETS.includes(request.url)) {
+    event.respondWith(
+      caches.match(request).then((cached) => {
+        return cached || fetch(request).then((response) => {
+          return caches.open(CDN_CACHE).then((cache) => {
             cache.put(request, response.clone());
             return response;
           });
@@ -152,7 +183,6 @@ self.addEventListener('sync', (event) => {
 
 async function syncFormSubmissions() {
   // Retrieve queued submissions from IndexedDB and send them
-  // Implementation in main.js stores submissions when offline
 }
 
 // Push notifications (future-ready)

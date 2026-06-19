@@ -307,6 +307,12 @@
   .shape-1, .shape-2, .shape-3, .shape-4 {
     opacity: 0.15;
   }
+
+  .hero-scroll-indicator {
+    display: none;
+  }
+
+  
 }
 
 /* Light mode adjustments */

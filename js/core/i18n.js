@@ -7,14 +7,22 @@ import { AppState } from './state.js';
 let translations = {};
 let currentTranslations = {};
 
-export async function loadTranslations() {
+export async function loadTranslations(lang = AppState.lang) {
   try {
-    const response = await fetch(`/data/i18n/${AppState.lang}.json`);
+    // const response = await fetch(`/data/i18n/${lang}.json`);
+    // if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+    
+    const basePath = window.location.pathname.includes('/pages/') ? '../' : '';
+    const response = await fetch(`${basePath}data/i18n/${lang}.json`);
+    
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
     translations = await response.json();
     currentTranslations = translations;
     applyTranslations();
   } catch (error) {
     console.error('Failed to load translations:', error);
+    currentTranslations = {};
   }
 }
 

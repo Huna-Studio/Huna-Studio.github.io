@@ -15,6 +15,7 @@
   <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png">
   <link rel="manifest" href="../manifest.json">
   
+  <link rel="stylesheet" href="../css/pages/about.css">
   <link rel="stylesheet" href="../css/main.css">
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
@@ -171,5 +172,9 @@
   <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
 
   <script type="module" src="../js/main.js"></script>
+    <script type="module">
+    import { initAboutPage } from '../js/pages/about.js';
+    initAboutPage();
+  </script>
 </body>
 </html>

@@ -146,20 +146,37 @@ function initCarousel(container) {
   const cards = track.querySelectorAll('.testimonial-card');
   const total = cards.length;
   
+  // function goTo(index) {
+  //   if (index < 0) index = total - 1;
+  //   if (index >= total) index = 0;
+  //   currentIndex = index;
+    
+  //   const card = cards[index];
+  //   if (card) {
+  //     card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+  //   }
+    
+  //   dots.forEach((dot, i) => {
+  //     dot.classList.toggle('active', i === currentIndex);
+  //   });
+  // }
+
   function goTo(index) {
-    if (index < 0) index = total - 1;
-    if (index >= total) index = 0;
-    currentIndex = index;
-    
-    const card = cards[index];
-    if (card) {
-      card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-    }
-    
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === currentIndex);
-    });
+  if (index < 0) index = total - 1;
+  if (index >= total) index = 0;
+  currentIndex = index;
+  
+  const card = cards[index];
+  if (card && track) {
+    // REPLACE scrollIntoView with manual scroll
+    const scrollLeft = card.offsetLeft - track.offsetLeft;
+    track.scrollTo({ left: scrollLeft, behavior: 'smooth' });
   }
+  
+  dots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === currentIndex);
+  });
+}
   
   prevBtn?.addEventListener('click', () => goTo(currentIndex - 1));
   nextBtn?.addEventListener('click', () => goTo(currentIndex + 1));
@@ -238,19 +255,22 @@ export function initNewsletter() {
       return;
     }
     
-    // Simulate submission
     const btn = form.querySelector('button');
     btn.classList.add('btn-loading');
     btn.disabled = true;
     
     try {
-      // In production, this would call the API
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // REPLACE simulated delay with actual API call
+      const result = await subscribeNewsletter(email);
       
-      message.textContent = t('form_success');
-      message.className = 'form-message success';
-      input.value = '';
-      success(t('form_success'));
+      if (result.success) {
+        message.textContent = t('form_success');
+        message.className = 'form-message success';
+        input.value = '';
+        success(t('form_success'));
+      } else {
+        throw new Error(result.error || 'Unknown error');
+      }
       
     } catch (e) {
       message.textContent = t('form_error');
@@ -262,6 +282,47 @@ export function initNewsletter() {
     }
   });
 }
+// export function initNewsletter() {
+//   const form = document.getElementById('newsletter-form');
+//   if (!form) return;
+  
+//   form.addEventListener('submit', async (e) => {
+//     e.preventDefault();
+    
+//     const input = form.querySelector('input[type="email"]');
+//     const message = document.getElementById('newsletter-message');
+//     const email = input.value.trim();
+    
+//     if (!email || !email.includes('@')) {
+//       message.textContent = t('form_error');
+//       message.className = 'form-message error';
+//       return;
+//     }
+    
+//     // Simulate submission
+//     const btn = form.querySelector('button');
+//     btn.classList.add('btn-loading');
+//     btn.disabled = true;
+    
+//     try {
+//       // In production, this would call the API
+//       await new Promise(resolve => setTimeout(resolve, 1500));
+      
+//       message.textContent = t('form_success');
+//       message.className = 'form-message success';
+//       input.value = '';
+//       success(t('form_success'));
+      
+//     } catch (e) {
+//       message.textContent = t('form_error');
+//       message.className = 'form-message error';
+//       error(t('form_error'));
+//     } finally {
+//       btn.classList.remove('btn-loading');
+//       btn.disabled = false;
+//     }
+//   });
+// }
 
 // Initialize all home page features
 export async function initHomePage() {

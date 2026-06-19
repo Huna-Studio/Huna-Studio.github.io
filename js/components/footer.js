@@ -42,6 +42,11 @@ class HunaFooter extends HTMLElement {
     const lang = AppState.lang;
     const footer = this.footerData;
     const socials = this.socialsData;
+
+    const year = new Date().getFullYear();
+const copyright = lang === 'ar' 
+  ? footer.bottom.copyright_ar.replace('2026', year)
+  : footer.bottom.copyright_en.replace('2026', year);
     
     // Social icons mapping
     const iconMap = {
@@ -60,7 +65,7 @@ class HunaFooter extends HTMLElement {
           <div class="footer-grid">
             <div class="footer-brand">
               <a href="/index.html" class="logo">
-                <img src="assets/images/Huna-logo-(no-bg).png" alt="HUNA Logo" width="48" height="48" loading="lazy">
+                <img src="/assets/images/Huna-logo-(no-bg).png" alt="HUNA Logo" width="48" height="48" loading="lazy">
                 <span class="logo-text">HUNA</span>
               </a>
               <p class="tagline">${lang === 'ar' ? footer.tagline_ar : footer.tagline_en}</p>
@@ -86,7 +91,9 @@ class HunaFooter extends HTMLElement {
           </div>
           
           <div class="footer-bottom">
-            <p>${lang === 'ar' ? footer.bottom.copyright_ar : footer.bottom.copyright_en}</p>
+            
+  <button id="pwa-install" style="display: none;">Install HUNA</button>
+<p>${copyright}</p>
             <div class="footer-bottom-links">
               ${footer.bottom.links.map(link => `
                 <a href="${link.href}">${lang === 'ar' ? link.label_ar : link.label_en}</a>

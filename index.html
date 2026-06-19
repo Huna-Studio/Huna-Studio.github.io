@@ -17,8 +17,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="assets/icons/favicon-32x32.png">
-  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <!-- <link rel="icon" type="image/png" href="/assets/icons/favicon-32x32.png"> -->
+  <link rel="icon" type="image/png" href="/assets/images/Huna-logo-(no-bg).png">
+  <!-- <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png"> -->
   
   <!-- PWA -->
   <link rel="manifest" href="manifest.json">
@@ -35,6 +36,7 @@
   
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <script>window.hunaLoadStart = Date.now();</script>
 </head>
 <body data-page="home">
   <!-- Loading Screen -->
@@ -150,21 +152,21 @@
         </div>
         <div class="community-grid">
           <div class="community-card" data-reveal>
-            <div class="card-icon" style="--icon-color: #6A59C4;">
+  <div class="card-icon" style="--icon-color: #6A59C4; --icon-color-rgb: 106, 89, 196;">  
               <i data-lucide="book-open"></i>
             </div>
             <h3 data-i18n="pillar_learn">Learning</h3>
             <p data-i18n="pillar_learn_desc">We provide knowledge and skills for personal and professional development.</p>
           </div>
           <div class="community-card" data-reveal>
-            <div class="card-icon" style="--icon-color: #00BBB0;">
+  <div class="card-icon" style="--icon-color: #00BBB0; --icon-color-rgb: 0, 187, 176;">
               <i data-lucide="hammer"></i>
             </div>
             <h3 data-i18n="pillar_build">Building</h3>
             <p data-i18n="pillar_build_desc">We connect people and build a strong, supportive community.</p>
           </div>
           <div class="community-card" data-reveal>
-            <div class="card-icon" style="--icon-color: #F99A00;">
+  <div class="card-icon" style="--icon-color: #F99A00; --icon-color-rgb: 249, 154, 0;">
               <i data-lucide="zap"></i>
             </div>
             <h3 data-i18n="pillar_execute">Execution</h3>

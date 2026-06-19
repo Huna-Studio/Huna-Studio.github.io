@@ -2,21 +2,24 @@
    HUNA Projects Page Styles
    ============================================ */
 
-.projects-page .page-header {
+/* .projects-page .page-header { */
+[data-page="projects"] .page-header {
   padding-top: 140px;
   padding-bottom: var(--space-16);
   text-align: center;
   background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
 }
 
-.projects-page .page-title {
+/* .projects-page .page-title { */
+[data-page="projects"] .page-title {
   font-size: var(--text-5xl);
   font-weight: var(--font-extrabold);
   margin-bottom: var(--space-4);
   line-height: 1.1;
 }
 
-.projects-page .page-subtitle {
+/* .projects-page .page-subtitle { */
+[data-page="projects"] .page-subtitle {
   font-size: var(--text-xl);
   color: var(--text-secondary);
   max-width: 600px;

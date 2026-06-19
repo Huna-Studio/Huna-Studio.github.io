@@ -62,7 +62,7 @@ class HunaNavbar extends HTMLElement {
           <div class="navbar-nav" role="menubar">
             ${data.links.map(link => {
               const label = lang === 'ar' ? link.label_ar : link.label_en;
-              const isActive = currentPath === link.href || currentPath.endsWith(link.href.replace('/', ''));
+              const isActive = currentPath === link.href || currentPath.endsWith(link.href.replace(/^\//, ''));
               return `<a href="${link.href}" class="nav-link ${isActive ? 'active' : ''}" role="menuitem">${label}</a>`;
             }).join('')}
           </div>

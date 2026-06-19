@@ -122,7 +122,7 @@ function renderCourses() {
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
             Enroll
           </a>
-          <button class="btn btn-ghost btn-small" onclick="showCourseDetails('${course.id}')">
+          <button class="btn btn-ghost btn-small" data-action="details" data-course-id="${course.id}">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
             Details
           </button>
@@ -206,14 +206,106 @@ function attachSearchEvents() {
 }
 
 // Exposed for onclick handlers
-window.changePage = function(page) {
+// window.changePage = function(page) {
+//   currentPage = page;
+//   renderCourses();
+//   renderPagination();
+//   window.scrollTo({ top: 0, behavior: 'smooth' });
+// };
+
+// window.showCourseDetails = function(courseId) {
+//   const course = allCourses.find(c => c.id === courseId);
+//   if (!course) return;
+  
+//   const lang = AppState.lang;
+//   const title = lang === 'ar' ? course.title_ar : course.title_en;
+//   const desc = lang === 'ar' ? course.description_ar : course.description_en;
+  
+//   // Create modal
+//   const modal = document.createElement('div');
+//   modal.className = 'modal-overlay active';
+//   modal.innerHTML = `
+//     <div class="modal active" style="max-width: 600px;">
+//       <div class="modal-header">
+//         <h3 class="modal-title">${title}</h3>
+//         <button class="modal-close" onclick="this.closest('.modal-overlay').remove()">
+//           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+//         </button>
+//       </div>
+//       <div class="modal-body">
+//         <img src="${course.image}" alt="${title}" style="width: 100%; border-radius: var(--radius-md); margin-bottom: var(--space-4);">
+//         <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-4);">${desc}</p>
+//         <div style="display: flex; gap: var(--space-4); flex-wrap: wrap; margin-bottom: var(--space-4);">
+//           <span class="badge badge-primary">${course.level}</span>
+//           <span class="badge badge-info">${course.duration}</span>
+//           <span class="badge badge-warning">${course.category}</span>
+//         </div>
+//         <div class="card-tags" style="margin-bottom: var(--space-4);">
+//           ${course.tags.map(tag => `<span class="card-tag">${tag}</span>`).join('')}
+//         </div>
+//         <p style="color: var(--text-secondary);"><strong>Instructor:</strong> ${course.instructor}</p>
+//       </div>
+//       <div class="modal-footer">
+//         <a href="${course.enrollment}" class="btn btn-primary">Enroll Now</a>
+//         <button class="btn btn-outline" onclick="this.closest('.modal-overlay').remove()">Close</button>
+//       </div>
+//     </div>
+//   `;
+  
+//   document.body.appendChild(modal);
+//   document.body.classList.add('modal-open');
+  
+//   modal.addEventListener('click', (e) => {
+//     if (e.target === modal) {
+//       modal.remove();
+//       document.body.classList.remove('modal-open');
+//     }
+//   });
+// };
+
+export function attachCourseEvents() {
+  const grid = document.getElementById('courses-grid');
+  const pagination = document.getElementById('courses-pagination');
+  
+  // Pagination clicks
+  if (pagination) {
+    pagination.addEventListener('click', (e) => {
+      const btn = e.target.closest('.page-btn');
+      if (!btn || btn.disabled) return;
+      
+      const page = parseInt(btn.textContent);
+      if (!isNaN(page)) {
+        changePage(page);
+      } else if (btn.querySelector('polyline')?.parentElement?.closest('button')) {
+        // Prev/Next buttons — check direction from SVG
+        const isNext = btn.innerHTML.includes('9 18'); // Next arrow SVG
+        changePage(currentPage + (isNext ? 1 : -1));
+      }
+    });
+  }
+  
+  // Course detail clicks
+  if (grid) {
+    grid.addEventListener('click', (e) => {
+      const detailsBtn = e.target.closest('[data-course-id] .btn-ghost');
+      if (detailsBtn) {
+        const card = detailsBtn.closest('[data-course-id]');
+        const courseId = card.getAttribute('data-course-id');
+        showCourseDetails(courseId);
+      }
+    });
+  }
+}
+
+// Keep these as module-level functions (not on window):
+function changePage(page) {
   currentPage = page;
   renderCourses();
   renderPagination();
   window.scrollTo({ top: 0, behavior: 'smooth' });
-};
+}
 
-window.showCourseDetails = function(courseId) {
+function showCourseDetails(courseId) {
   const course = allCourses.find(c => c.id === courseId);
   if (!course) return;
   
@@ -261,9 +353,11 @@ window.showCourseDetails = function(courseId) {
       document.body.classList.remove('modal-open');
     }
   });
-};
+}
 
 // Initialize courses page
 export async function initCoursesPage() {
   await loadCourses();
+  attachCourseEvents(); // ADD this
+
 }

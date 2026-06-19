@@ -4,7 +4,7 @@
 
 import { AppState } from './core/state.js';
 import { loadTranslations, applyTranslations } from './core/i18n.js';
-import { router } from './core/router.js';
+// import { router } from './core/router.js';
 import {
   initScrollReveal,
   animateCounters,
@@ -90,20 +90,124 @@ function initPWAInstall() {
   });
 }
 
+// // ============================================
+// // Initialize App
+// // ============================================
+// async function init() {
+//   // Register PWA
+//   registerServiceWorker();
+//   initPWAInstall();
+  
+//   // Load translations
+//   await loadTranslations();
+  
+//   // Initialize animations
+//   initScrollReveal();
+//   animateCounters();
+//   initMagneticButtons();
+//   initCursorEffects();
+//   initParticles();
+//   initSmoothScroll();
+//   initGSAPAnimations();
+//   initNavbarScroll();
+  
+//   // Initialize page-specific content
+//   const page = document.body.getAttribute('data-page');
+  
+//   if (page === 'home') {
+//     await initHomePage();
+//   }
+  
+//   // Initialize router for SPA-like transitions
+//   router.init();
+  
+//   // Hide loading screen
+//   setTimeout(() => {
+//     hideLoadingScreen();
+//   }, 1500); // Minimum display time for smooth UX
+  
+//   // Initialize Lucide icons
+//   if (typeof lucide !== 'undefined') {
+//     lucide.createIcons();
+//   }
+  
+//   // Re-initialize icons on content changes
+//   window.addEventListener('pagereload', () => {
+//     if (typeof lucide !== 'undefined') {
+//       lucide.createIcons();
+//     }
+//     initScrollReveal();
+//     animateCounters();
+//   });
+  
+//   // Re-initialize on language change
+//   window.addEventListener('langchange', async () => {
+//     await loadTranslations();
+//     applyTranslations();
+    
+//     // Reload page content
+//     if (page === 'home') {
+//       await initHomePage();
+//     }
+    
+//     if (typeof lucide !== 'undefined') {
+//       lucide.createIcons();
+//     }
+//   });
+  
+//   console.log('HUNA initialized');
+// }
+
 // ============================================
 // Initialize App
 // ============================================
+// async function init() {
+//   // Register PWA
+//   registerServiceWorker();
+//   initPWAInstall();
+  
+//   // Load translations
+//   await loadTranslations();
+  
+//   // Initialize animations
+//   initScrollReveal();
+//   animateCounters();
+//   initMagneticButtons();
+//   initCursorEffects();
+//   initParticles();
+//   initSmoothScroll();
+//   initGSAPAnimations();
+//   initNavbarScroll();
+  
+//   // Initialize page-specific content
+//   const page = document.body.getAttribute('data-page');
+  
+//   if (page === 'home') {
+//     await initHomePage();
+//   }
+  
+//   // REMOVED: router.init(); — SPA router breaks multi-page navigation
+  
+//   // Hide loading screen
+//   setTimeout(() => {
+//     hideLoadingScreen();
+//   }, 1500);
+  
+//   // Initialize Lucide icons
+//   if (typeof lucide !== 'undefined') {
+//     lucide.createIcons();
+//   }
+  
+
 async function init() {
-  // Register PWA
   registerServiceWorker();
   initPWAInstall();
   
-  // Load translations
+  // Load translations FIRST (blocks everything else)
   await loadTranslations();
   
   // Initialize animations
   initScrollReveal();
-  animateCounters();
   initMagneticButtons();
   initCursorEffects();
   initParticles();
@@ -111,26 +215,25 @@ async function init() {
   initGSAPAnimations();
   initNavbarScroll();
   
-  // Initialize page-specific content
+  // Initialize page-specific content and WAIT for it
   const page = document.body.getAttribute('data-page');
   
-  if (page === 'home') {
-    await initHomePage();
+  try {
+    if (page === 'home') {
+      await initHomePage();
+    }
+    // Page-specific inits are now called from their own HTML files
+  } catch (e) {
+    console.error('Page init failed:', e);
   }
   
-  // Initialize router for SPA-like transitions
-  router.init();
-  
-  // Hide loading screen
-  setTimeout(() => {
-    hideLoadingScreen();
-  }, 1500); // Minimum display time for smooth UX
+  // NOW hide loading screen — content is actually ready
+  hideLoadingScreen();
   
   // Initialize Lucide icons
   if (typeof lucide !== 'undefined') {
     lucide.createIcons();
   }
-  
   // Re-initialize icons on content changes
   window.addEventListener('pagereload', () => {
     if (typeof lucide !== 'undefined') {

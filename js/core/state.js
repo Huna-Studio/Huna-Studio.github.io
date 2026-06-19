@@ -33,20 +33,37 @@ export const AppState = {
     this.setLang(this.lang === 'en' ? 'ar' : 'en');
   },
   
+  // init() {
+  //   // Set initial lang
+  //   document.documentElement.lang = this.lang;
+  //   document.documentElement.dir = this.lang === 'ar' ? 'rtl' : 'ltr';
+    
+  //   // Set initial theme
+  //   document.documentElement.setAttribute('data-theme', this.theme);
+    
+  //   // Check system preference
+  //   if (!localStorage.getItem('huna-theme')) {
+  //     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  //     this.setTheme(prefersDark ? 'dark' : 'light');
+  //   }
+  // }
+
   init() {
-    // Set initial lang
-    document.documentElement.lang = this.lang;
-    document.documentElement.dir = this.lang === 'ar' ? 'rtl' : 'ltr';
-    
-    // Set initial theme
+  // Set initial lang
+  document.documentElement.lang = this.lang;
+  document.documentElement.dir = this.lang === 'ar' ? 'rtl' : 'ltr';
+  
+  // Set initial theme WITHOUT dispatching event
+  document.documentElement.setAttribute('data-theme', this.theme);
+  
+  // Check system preference only if no stored preference
+  if (!localStorage.getItem('huna-theme')) {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    this.theme = prefersDark ? 'dark' : 'light'; // Set directly, no event
     document.documentElement.setAttribute('data-theme', this.theme);
-    
-    // Check system preference
-    if (!localStorage.getItem('huna-theme')) {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      this.setTheme(prefersDark ? 'dark' : 'light');
-    }
+    localStorage.setItem('huna-theme', this.theme);
   }
+}
 };
 
 AppState.init();

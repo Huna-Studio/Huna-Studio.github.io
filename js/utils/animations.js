@@ -136,9 +136,16 @@ export function initCursorEffects() {
 
 // Particle Background
 export function initParticles() {
-  const canvas = document.querySelector('.hero-particles canvas');
-  if (!canvas) return;
+  const container = document.querySelector('.hero-particles');
+  if (!container) return;
   
+  // Create canvas if it doesn't exist
+  let canvas = container.querySelector('canvas');
+  if (!canvas) {
+    canvas = document.createElement('canvas');
+    container.appendChild(canvas);
+  }
+
   const ctx = canvas.getContext('2d');
   let particles = [];
   let animationId;
@@ -317,17 +324,35 @@ export function initGSAPAnimations() {
   });
 }
 
-// Loading Screen
+// // Loading Screen
+// export function hideLoadingScreen() {
+//   const loader = document.getElementById('loading-screen');
+//   if (!loader) return;
+  
+//   loader.classList.add('hidden');
+//   AppState.isLoading = false;
+  
+//   setTimeout(() => {
+//     loader.style.display = 'none';
+//   }, 500);
+// }
 export function hideLoadingScreen() {
   const loader = document.getElementById('loading-screen');
   if (!loader) return;
   
-  loader.classList.add('hidden');
-  AppState.isLoading = false;
+  // Add a minimum display time for UX (prevents flash)
+  const elapsed = Date.now() - (window.hunaLoadStart || Date.now());
+  const minDisplay = 800; // ms
+  const remaining = Math.max(0, minDisplay - elapsed);
   
   setTimeout(() => {
-    loader.style.display = 'none';
-  }, 500);
+    loader.classList.add('hidden');
+    AppState.isLoading = false;
+    
+    setTimeout(() => {
+      loader.style.display = 'none';
+    }, 500);
+  }, remaining);
 }
 
 // Navbar scroll effect

@@ -194,6 +194,12 @@ export function initVolunteerForm() {
       error('Please fill in all required fields.');
       return;
     }
+
+    // ADD THIS:
+    if (formData.skills.length === 0) {
+      error('Please select at least one skill.');
+      return;
+    }
     
     if (!formData.email.includes('@')) {
       error('Please enter a valid email address.');
