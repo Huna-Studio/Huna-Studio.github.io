@@ -1,0 +1,32 @@
+{
+  "name": "HUNA — Learn. Build. Execute.",
+  "short_name": "HUNA",
+  "description": "A community where people come together to learn, build, and execute. Here, we grow.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0D132B",
+  "theme_color": "#0D132B",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "icons": [
+    { "src": "assets/icons/icon-72x72.png", "sizes": "72x72", "type": "image/png" },
+    { "src": "assets/icons/icon-96x96.png", "sizes": "96x96", "type": "image/png" },
+    { "src": "assets/icons/icon-128x128.png", "sizes": "128x128", "type": "image/png" },
+    { "src": "assets/icons/icon-144x144.png", "sizes": "144x144", "type": "image/png" },
+    { "src": "assets/icons/icon-152x152.png", "sizes": "152x152", "type": "image/png" },
+    { "src": "assets/icons/icon-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icons/icon-384x384.png", "sizes": "384x384", "type": "image/png" },
+    { "src": "assets/icons/icon-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "categories": ["education", "community", "productivity"],
+  "screenshots": [
+    { "src": "assets/images/screenshot-wide.png", "sizes": "1280x720", "type": "image/png", "form_factor": "wide" },
+    { "src": "assets/images/screenshot-narrow.png", "sizes": "750x1334", "type": "image/png", "form_factor": "narrow" }
+  ],
+  "shortcuts": [
+    { "name": "Courses", "short_name": "Courses", "description": "Browse HUNA courses", "url": "/pages/courses.html", "icons": [{ "src": "assets/icons/icon-96x96.png", "sizes": "96x96" }] },
+    { "name": "Projects", "short_name": "Projects", "description": "View community projects", "url": "/pages/projects.html", "icons": [{ "src": "assets/icons/icon-96x96.png", "sizes": "96x96" }] },
+    { "name": "Join Us", "short_name": "Join", "description": "Volunteer with HUNA", "url": "/pages/volunteer.html", "icons": [{ "src": "assets/icons/icon-96x96.png", "sizes": "96x96" }] }
+  ]
+}

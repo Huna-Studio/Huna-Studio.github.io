@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HUNA — A community where people come together to Learn, Build, and Execute. Here, we grow.">
+  <meta name="theme-color" content="#0D132B">
+  <meta name="color-scheme" content="dark light">
+  
+  <title>HUNA — Learn. Build. Execute.</title>
+  
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+</head>
+<body data-page="home">
+  <!-- Loading Screen -->
+  <div id="loading-screen" class="loading-screen" aria-hidden="true">
+    <div class="loading-logo">
+      <svg viewBox="0 0 1002 1003" class="loading-logo-svg" aria-hidden="true">
+        <circle cx="521.5" cy="183.5" r="74.5" fill="#D9D9D9"/>
+        <path d="M204.644 183.892V306.629C207.091 467.836 200.362 809.178 207.091 856.196C214.162 905.611 255.824 896.091 273.767 885.507C282.739 875.94 306.31 852.044 328.821 832.992C351.332 813.941 357.368 788.009 357.572 777.425V607.67C357.572 566.147 389.381 552.51 405.285 550.881C423.84 550.474 470.371 547.95 508.052 541.111C545.734 534.272 563.718 499.995 568 483.712V440.357C568 435.472 566.165 420.328 558.824 398.834C551.484 377.34 525.18 368.71 512.946 367.082C495.614 367.692 450.429 372.577 408.344 387.232C366.258 401.887 356.96 370.542 357.572 353.037V229.079C356.552 211.167 339.832 168.26 281.108 139.927C222.384 111.594 205.664 157.432 204.644 183.892Z" fill="url(#loadGrad1)"/>
+        <path d="M631.214 633.733C653.771 648.897 659.818 635.568 660.023 627.007H797.324C797.324 689.376 801.002 828.176 791.195 858.137C781.388 888.098 734.19 899.976 716.415 891.155C698.639 882.335 557.046 784.762 528.237 767.642C499.429 750.521 485.5 752.5 477 722C468.5 691.5 471.233 679.593 479.814 633.733C488.395 587.874 541 582 558.5 590.5C576 599 608.657 618.569 631.214 633.733Z" fill="url(#loadGrad2)"/>
+        <path d="M798 849.515V232.059C786.718 194.89 756.102 203.938 742.204 213.108C731.985 221.666 706.764 242.574 687.634 257.736C668.504 272.897 661.269 298.696 660.043 309.7C657.795 460.905 655.506 768.329 664.335 788.381C673.164 808.433 707.255 852.167 750.175 870.3C779.115 882.527 794.117 861.538 798 849.515Z" fill="url(#loadGrad3)"/>
+        <defs>
+          <linearGradient id="loadGrad1" x1="372.253" y1="144.202" x2="161.29" y2="874.714">
+            <stop offset="0.1" stop-color="#6A59C4"/>
+            <stop offset="0.85" stop-color="#4B29A3"/>
+          </linearGradient>
+          <linearGradient id="loadGrad2" x1="492.55" y1="605.732" x2="770.124" y2="894.407">
+            <stop stop-color="#F99A00"/>
+            <stop offset="1" stop-color="#EC730C"/>
+          </linearGradient>
+          <linearGradient id="loadGrad3" x1="728" y1="205" x2="728" y2="874">
+            <stop stop-color="#00BBB0"/>
+            <stop offset="1" stop-color="#274C56"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+    <div class="loading-bar">
+      <div class="loading-bar-fill"></div>
+    </div>
+    <p class="loading-text" data-i18n="loading">Loading HUNA...</p>
+  </div>
+
+  <!-- Cursor Follower (desktop only) -->
+  <div class="cursor-follower" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <huna-navbar></huna-navbar>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+      <div class="hero-particles" aria-hidden="true"></div>
+      <div class="hero-content">
+        <div class="hero-badge" data-i18n="hero_badge">A Community for Growth</div>
+        <h1 class="hero-title">
+          <span class="hero-line" data-i18n="hero_line1">Learn.</span>
+          <span class="hero-line" data-i18n="hero_line2">Build.</span>
+          <span class="hero-line" data-i18n="hero_line3">Execute.</span>
+        </h1>
+        <p class="hero-subtitle" data-i18n="hero_subtitle">
+          The place where growth, innovation, community, and impact begin.
+        </p>
+        <p class="hero-arabic" data-i18n="hero_arabic" dir="rtl">هُنا نتعلم، نبني، وننفذ.</p>
+        <div class="hero-cta">
+          <a href="pages/courses.html" class="btn btn-primary btn-magnetic" data-i18n="cta_learn">
+            <i data-lucide="book-open"></i> Start Learning
+          </a>
+          <a href="pages/about.html" class="btn btn-outline btn-magnetic" data-i18n="cta_about">
+            <i data-lucide="users"></i> About HUNA
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-logo-3d">
+          <svg viewBox="0 0 1002 1003" class="hero-logo-svg">
+            <circle cx="521.5" cy="183.5" r="74.5" fill="#D9D9D9" class="logo-dot"/>
+            <path d="M204.644 183.892V306.629C207.091 467.836 200.362 809.178 207.091 856.196C214.162 905.611 255.824 896.091 273.767 885.507C282.739 875.94 306.31 852.044 328.821 832.992C351.332 813.941 357.368 788.009 357.572 777.425V607.67C357.572 566.147 389.381 552.51 405.285 550.881C423.84 550.474 470.371 547.95 508.052 541.111C545.734 534.272 563.718 499.995 568 483.712V440.357C568 435.472 566.165 420.328 558.824 398.834C551.484 377.34 525.18 368.71 512.946 367.082C495.614 367.692 450.429 372.577 408.344 387.232C366.258 401.887 356.96 370.542 357.572 353.037V229.079C356.552 211.167 339.832 168.26 281.108 139.927C222.384 111.594 205.664 157.432 204.644 183.892Z" fill="url(#heroGrad1)" class="logo-part logo-part-1"/>
+            <path d="M631.214 633.733C653.771 648.897 659.818 635.568 660.023 627.007H797.324C797.324 689.376 801.002 828.176 791.195 858.137C781.388 888.098 734.19 899.976 716.415 891.155C698.639 882.335 557.046 784.762 528.237 767.642C499.429 750.521 485.5 752.5 477 722C468.5 691.5 471.233 679.593 479.814 633.733C488.395 587.874 541 582 558.5 590.5C576 599 608.657 618.569 631.214 633.733Z" fill="url(#heroGrad2)" class="logo-part logo-part-2"/>
+            <path d="M798 849.515V232.059C786.718 194.89 756.102 203.938 742.204 213.108C731.985 221.666 706.764 242.574 687.634 257.736C668.504 272.897 661.269 298.696 660.043 309.7C657.795 460.905 655.506 768.329 664.335 788.381C673.164 808.433 707.255 852.167 750.175 870.3C779.115 882.527 794.117 861.538 798 849.515Z" fill="url(#heroGrad3)" class="logo-part logo-part-3"/>
+            <defs>
+              <linearGradient id="heroGrad1" x1="372.253" y1="144.202" x2="161.29" y2="874.714">
+                <stop offset="0.1" stop-color="#6A59C4"/>
+                <stop offset="0.85" stop-color="#4B29A3"/>
+              </linearGradient>
+              <linearGradient id="heroGrad2" x1="492.55" y1="605.732" x2="770.124" y2="894.407">
+                <stop stop-color="#F99A00"/>
+                <stop offset="1" stop-color="#EC730C"/>
+              </linearGradient>
+              <linearGradient id="heroGrad3" x1="728" y1="205" x2="728" y2="874">
+                <stop stop-color="#00BBB0"/>
+                <stop offset="1" stop-color="#274C56"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="floating-shapes" aria-hidden="true">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+          <div class="shape shape-3"></div>
+          <div class="shape shape-4"></div>
+        </div>
+      </div>
+      <div class="hero-scroll-indicator" aria-hidden="true">
+        <div class="scroll-mouse">
+          <div class="scroll-wheel"></div>
+        </div>
+        <span data-i18n="scroll_down">Scroll</span>
+      </div>
+    </section>
+
+    <!-- Community Intro -->
+    <section id="community" class="section community-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label" data-i18n="community_label">Who We Are</span>
+          <h2 class="section-title" data-i18n="community_title">Not a Company. Not an Academy.<br>We Are <span class="text-gradient">HUNA</span>.</h2>
+          <p class="section-desc" data-i18n="community_desc">
+            HUNA is a community where passionate people come together to learn new skills, 
+            build real projects, and execute ideas that create impact.
+          </p>
+        </div>
+        <div class="community-grid">
+          <div class="community-card" data-reveal>
+            <div class="card-icon" style="--icon-color: #6A59C4;">
+              <i data-lucide="book-open"></i>
+            </div>
+            <h3 data-i18n="pillar_learn">Learning</h3>
+            <p data-i18n="pillar_learn_desc">We provide knowledge and skills for personal and professional development.</p>
+          </div>
+          <div class="community-card" data-reveal>
+            <div class="card-icon" style="--icon-color: #00BBB0;">
+              <i data-lucide="hammer"></i>
+            </div>
+            <h3 data-i18n="pillar_build">Building</h3>
+            <p data-i18n="pillar_build_desc">We connect people and build a strong, supportive community.</p>
+          </div>
+          <div class="community-card" data-reveal>
+            <div class="card-icon" style="--icon-color: #F99A00;">
+              <i data-lucide="zap"></i>
+            </div>
+            <h3 data-i18n="pillar_execute">Execution</h3>
+            <p data-i18n="pillar_execute_desc">We turn ideas into reality and create measurable positive change.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission -->
+    <section id="mission" class="section mission-section">
+      <div class="container">
+        <div class="mission-content" data-reveal>
+          <span class="section-label" data-i18n="mission_label">Our Mission</span>
+          <h2 class="section-title" data-i18n="mission_title">Empowering People Through<br><span class="text-gradient">Learning & Action</span></h2>
+          <p class="section-desc" data-i18n="mission_desc">
+            To empower people and communities through learning, collaboration, innovation, 
+            and practical initiatives that create lasting impact.
+          </p>
+          <div class="mission-stats">
+            <div class="stat-item" data-counter="500">
+              <span class="stat-number">0</span>
+              <span class="stat-label" data-i18n="stat_members">Members</span>
+            </div>
+            <div class="stat-item" data-counter="50">
+              <span class="stat-number">0</span>
+              <span class="stat-label" data-i18n="stat_projects">Projects</span>
+            </div>
+            <div class="stat-item" data-counter="25">
+              <span class="stat-number">0</span>
+              <span class="stat-label" data-i18n="stat_courses">Courses</span>
+            </div>
+            <div class="stat-item" data-counter="10">
+              <span class="stat-number">0</span>
+              <span class="stat-label" data-i18n="stat_countries">Countries</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mission-bg" aria-hidden="true">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+      </div>
+    </section>
+
+    <!-- Featured Courses -->
+    <section id="featured-courses" class="section courses-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label" data-i18n="courses_label">Featured</span>
+          <h2 class="section-title" data-i18n="courses_title">Learn With <span class="text-gradient">HUNA</span></h2>
+          <p class="section-desc" data-i18n="courses_desc">Explore our curated courses designed by the community, for the community.</p>
+        </div>
+        <div class="courses-grid" id="featured-courses-grid">
+          <!-- Dynamically loaded from courses.json -->
+        </div>
+        <div class="section-cta">
+          <a href="pages/courses.html" class="btn btn-primary btn-magnetic" data-i18n="view_all_courses">
+            <i data-lucide="arrow-right"></i> View All Courses
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section id="featured-projects" class="section projects-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label" data-i18n="projects_label">Showcase</span>
+          <h2 class="section-title" data-i18n="projects_title">Built By <span class="text-gradient">HUNA</span></h2>
+          <p class="section-desc" data-i18n="projects_desc">Real projects built by real people in our community.</p>
+        </div>
+        <div class="projects-grid" id="featured-projects-grid">
+          <!-- Dynamically loaded from projects.json -->
+        </div>
+        <div class="section-cta">
+          <a href="pages/projects.html" class="btn btn-primary btn-magnetic" data-i18n="view_all_projects">
+            <i data-lucide="arrow-right"></i> View All Projects
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="section testimonials-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label" data-i18n="testimonials_label">Voices</span>
+          <h2 class="section-title" data-i18n="testimonials_title">What Our <span class="text-gradient">Community</span> Says</h2>
+        </div>
+        <div class="testimonials-carousel" id="testimonials-carousel">
+          <!-- Dynamically loaded from testimonials.json -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Latest Updates / News -->
+    <section id="updates" class="section updates-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label" data-i18n="updates_label">Latest</span>
+          <h2 class="section-title" data-i18n="updates_title">What's <span class="text-gradient">New</span></h2>
+        </div>
+        <div class="updates-grid" id="updates-grid">
+          <!-- Dynamically loaded from news.json -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta" class="section cta-section">
+      <div class="container">
+        <div class="cta-content" data-reveal>
+          <h2 class="cta-title" data-i18n="cta_title">Ready to Join <span class="text-gradient">HUNA</span>?</h2>
+          <p class="cta-desc" data-i18n="cta_desc">
+            Be part of a community that learns together, builds together, and grows together.
+          </p>
+          <div class="cta-buttons">
+            <a href="pages/volunteer.html" class="btn btn-primary btn-large btn-magnetic" data-i18n="cta_join">
+              <i data-lucide="user-plus"></i> Join HUNA
+            </a>
+            <a href="pages/contact.html" class="btn btn-outline btn-large btn-magnetic" data-i18n="cta_contact">
+              <i data-lucide="message-circle"></i> Get in Touch
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="cta-bg" aria-hidden="true">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section id="newsletter" class="section newsletter-section">
+      <div class="container">
+        <div class="newsletter-content" data-reveal>
+          <div class="newsletter-text">
+            <h3 data-i18n="newsletter_title">Stay in the Loop</h3>
+            <p data-i18n="newsletter_desc">Get the latest updates, courses, and community news delivered to your inbox.</p>
+          </div>
+          <form class="newsletter-form" id="newsletter-form">
+            <div class="input-group">
+              <input type="email" placeholder="your@email.com" required data-i18n-placeholder="email_placeholder">
+              <button type="submit" class="btn btn-primary" data-i18n="subscribe">Subscribe</button>
+            </div>
+            <p class="form-message" id="newsletter-message"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <huna-footer></huna-footer>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Scripts -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

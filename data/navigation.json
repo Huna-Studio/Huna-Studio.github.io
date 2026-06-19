@@ -1,0 +1,30 @@
+{
+  "logo": {
+    "src": "/assets/images/Huna-logo-(no-bg).png",
+    "alt": "HUNA Logo",
+    "width": 120,
+    "height": 40
+  },
+  "links": [
+    { "label_en": "Home", "label_ar": "الرئيسية", "href": "/index.html", "icon": "home" },
+    { "label_en": "About", "label_ar": "عن هُنا", "href": "/pages/about.html", "icon": "info" },
+    { "label_en": "Courses", "label_ar": "الدورات", "href": "/pages/courses.html", "icon": "book-open" },
+    { "label_en": "Projects", "label_ar": "المشاريع", "href": "/pages/projects.html", "icon": "folder-git-2" },
+    { "label_en": "Volunteer", "label_ar": "تطوع", "href": "/pages/volunteer.html", "icon": "heart-handshake" },
+    { "label_en": "Contact", "label_ar": "تواصل", "href": "/pages/contact.html", "icon": "mail" }
+  ],
+  "cta": {
+    "label_en": "Join HUNA",
+    "label_ar": "انضم إلى هُنا",
+    "href": "/pages/volunteer.html",
+    "icon": "user-plus"
+  },
+  "langToggle": {
+    "label_en": "العربية",
+    "label_ar": "English"
+  },
+  "themeToggle": {
+    "label_en": "Theme",
+    "label_ar": "المظهر"
+  }
+}

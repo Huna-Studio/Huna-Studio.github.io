@@ -1,0 +1,10 @@
+{
+  "stats": [
+    { "key": "members", "value": 500, "suffix": "+", "label_en": "Community Members", "label_ar": "عضو في المجتمع" },
+    { "key": "projects", "value": 50, "suffix": "+", "label_en": "Projects Built", "label_ar": "مشروع مُنجز" },
+    { "key": "courses", "value": 25, "suffix": "+", "label_en": "Courses Available", "label_ar": "دورة متاحة" },
+    { "key": "countries", "value": 10, "suffix": "+", "label_en": "Countries Reached", "label_ar": "دولة" },
+    { "key": "volunteers", "value": 80, "suffix": "+", "label_en": "Active Volunteers", "label_ar": "متطوع نشط" },
+    { "key": "events", "value": 30, "suffix": "+", "label_en": "Events Hosted", "label_ar": "فعالية" }
+  ]
+}

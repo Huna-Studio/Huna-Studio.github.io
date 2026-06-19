@@ -1,0 +1,106 @@
+/* ============================================
+   HUNA Testimonials Section
+   ============================================ */
+
+.testimonials-section {
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonials-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(106, 89, 196, 0.03) 0%, transparent 50%),
+              radial-gradient(ellipse at 70% 50%, rgba(0, 187, 176, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.testimonials-carousel {
+  position: relative;
+  z-index: 1;
+  margin-top: var(--space-12);
+}
+
+.testimonials-track {
+  display: flex;
+  gap: var(--space-6);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: var(--space-4) var(--space-2);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.testimonials-track::-webkit-scrollbar {
+  display: none;
+}
+
+.testimonials-track .testimonial-card {
+  flex: 0 0 calc(50% - var(--space-3));
+  min-width: 340px;
+  scroll-snap-align: start;
+}
+
+.carousel-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+
+.carousel-btn {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.carousel-btn:hover {
+  background: var(--accent-primary);
+  color: var(--text-inverse);
+  border-color: var(--accent-primary);
+}
+
+.carousel-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.carousel-dots {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  background: var(--border-secondary);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  border: none;
+}
+
+.carousel-dot.active {
+  background: var(--accent-primary);
+  width: 32px;
+  border-radius: var(--radius-full);
+}
+
+@media (max-width: 1023px) {
+  .testimonials-track .testimonial-card {
+    flex: 0 0 calc(100% - var(--space-4));
+    min-width: 300px;
+  }
+}

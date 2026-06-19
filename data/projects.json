@@ -1,0 +1,20 @@
+{
+  "projects": [
+    {
+      "id": "dory-pet-store",
+      "title_en": "Dory Pet Store",
+      "title_ar": "متجر دوري للحيوانات الاليفة",
+      "description_en": "An e-commerce platform for pet products with a focus on user experience and responsive design.",
+      "description_ar": "منصة تجارة إلكترونية لمنتجات الحيوانات الأليفة مع التركيز على تجربة المستخدم وتصميم متجاوب.",
+      "technologies": ["HTML5", "CSS", "JavaScript"],
+      "difficulty": "Easy",
+      "difficulty_ar": "سهل",
+      "contributors": ["Mohammed G."],
+      "github": "https://github.com/Huna-Studio/dory-pet-store",
+      "images": [],
+      "status": "completed",
+      "status_ar": "مكتمل",
+      "featured": true
+    }
+  ]
+}

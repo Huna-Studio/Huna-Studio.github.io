@@ -1,0 +1,107 @@
+/* ============================================
+   HUNA Mission Section
+   ============================================ */
+
+.mission-section {
+  position: relative;
+  background: var(--bg-primary);
+  overflow: hidden;
+}
+
+.mission-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.2;
+  animation: orbPulse 8s ease-in-out infinite;
+}
+
+.orb-1 {
+  width: 500px;
+  height: 500px;
+  background: var(--huna-purple);
+  top: -20%;
+  left: -10%;
+}
+
+.orb-2 {
+  width: 400px;
+  height: 400px;
+  background: var(--huna-teal);
+  bottom: -20%;
+  right: -10%;
+  animation-delay: 4s;
+}
+
+.mission-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.mission-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-8);
+  margin-top: var(--space-16);
+}
+
+.stat-item {
+  text-align: center;
+  padding: var(--space-6);
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-xl);
+  transition: all var(--transition-base);
+}
+
+.stat-item:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-glow);
+}
+
+.stat-number {
+  display: block;
+  font-size: var(--text-5xl);
+  font-weight: var(--font-extrabold);
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: var(--space-2);
+}
+
+.stat-label {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  font-weight: var(--font-medium);
+}
+
+/* Responsive */
+@media (max-width: 1023px) {
+  .mission-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .mission-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+  
+  .stat-number {
+    font-size: var(--text-3xl);
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "testimonials": [
+    {
+      "id": 1,
+      "name_en": "Ahmed Khalil",
+      "name_ar": "أحمد خليل",
+      "role_en": "Frontend Developer",
+      "role_ar": "مطور واجهات أمامية",
+      "avatar": "assets/images/avatar-1.jpg",
+      "quote_en": "HUNA changed my career path. I went from knowing nothing about coding to building real projects in just 3 months. The community support is incredible.",
+      "quote_ar": "غيّر هُنا مسار حياتي المهني. انتقلت من عدم معرفة شيء عن البرمجة إلى بناء مشاريع حقيقية في 3 أشهر فقط. دعم المجتمع لا يُصدق.",
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "name_en": "Sara Mahmoud",
+      "name_ar": "سارة محمود",
+      "role_en": "UI/UX Designer",
+      "role_ar": "مصممة UI/UX",
+      "avatar": "assets/images/avatar-2.jpg",
+      "quote_en": "The design workshops at HUNA helped me land my first freelance client. Learning by building is the best approach I've ever experienced.",
+      "quote_ar": "ساعدتني ورش التصميم في هُنا على الحصول على عميلي المستقل الأول. التعلم من خلال البناء هو أفضل نهج جربته على الإطلاق.",
+      "rating": 5
+    },
+    {
+      "id": 3,
+      "name_en": "Omar Hassan",
+      "name_ar": "عمر حسن",
+      "role_en": "Full-Stack Developer",
+      "role_ar": "مطور Full-Stack",
+      "avatar": "assets/images/avatar-3.jpg",
+      "quote_en": "I joined HUNA to learn, but I stayed for the people. The collaborative environment pushes you to be better every single day.",
+      "quote_ar": "انضممت إلى هُنا للتعلم، لكن بقيت من أجل الناس. البيئة التعاونية تدفعك للتحسن كل يوم.",
+      "rating": 5
+    },
+    {
+      "id": 4,
+      "name_en": "Laila Abdelrahman",
+      "name_ar": "ليلى عبد الرحمن",
+      "role_en": "Data Scientist",
+      "role_ar": "عالمة بيانات",
+      "avatar": "assets/images/avatar-4.jpg",
+      "quote_en": "The data science track at HUNA is hands-on and practical. I built a portfolio that actually got me interviews at top companies.",
+      "quote_ar": "مسار علوم البيانات في هُنا عملي وتطبيقي. بنيت محفظة أعمال حصلت لي فعلاً على مقابلات في شركات رائدة.",
+      "rating": 5
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "members": [
+    {
+      "id": 1,
+      "name_en": "Founder Name",
+      "name_ar": "اسم المؤسس",
+      "role_en": "Founder & Community Lead",
+      "role_ar": "مؤسس وقائد المجتمع",
+      "bio_en": "Passionate about building communities that empower people to learn and grow.",
+      "bio_ar": "متحمس لبناء مجتمعات تمكن الناس من التعلم والنمو.",
+      "avatar": "assets/images/team-1.jpg",
+      "github": "https://github.com/",
+      "linkedin": "https://linkedin.com/in/",
+      "twitter": "https://x.com/"
+    },
+    {
+      "id": 2,
+      "name_en": "Co-Founder Name",
+      "name_ar": "اسم الشريك المؤسس",
+      "role_en": "Co-Founder & Technical Lead",
+      "role_ar": "شريك مؤسس وقائد تقني",
+      "bio_en": "Full-stack developer with a vision for accessible, community-driven technology.",
+      "bio_ar": "مطور Full-Stack برؤية لتقنية متاحة ومدفوعة بالمجتمع.",
+      "avatar": "assets/images/team-2.jpg",
+      "github": "https://github.com/",
+      "linkedin": "https://linkedin.com/in/",
+      "twitter": "https://x.com/"
+    }
+  ]
+}

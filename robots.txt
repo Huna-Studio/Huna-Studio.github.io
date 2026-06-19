@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://huna.community/sitemap.xml

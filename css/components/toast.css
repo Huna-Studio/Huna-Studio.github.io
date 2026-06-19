@@ -1,0 +1,129 @@
+/* ============================================
+   HUNA Toast Notifications
+   ============================================ */
+
+.toast-container {
+  position: fixed;
+  bottom: var(--space-6);
+  right: var(--space-6);
+  z-index: var(--z-toast);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  pointer-events: none;
+}
+
+[dir="rtl"] .toast-container {
+  right: auto;
+  left: var(--space-6);
+}
+
+@media (max-width: 767px) {
+  .toast-container {
+    left: var(--space-4);
+    right: var(--space-4);
+    bottom: var(--space-4);
+  }
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-6);
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  pointer-events: all;
+  transform: translateX(120%);
+  opacity: 0;
+  transition: all var(--transition-base);
+  max-width: 400px;
+}
+
+[dir="rtl"] .toast {
+  transform: translateX(-120%);
+}
+
+.toast.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.toast-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.toast-success {
+  border-left: 3px solid #10B981;
+}
+
+[dir="rtl"] .toast-success {
+  border-left: none;
+  border-right: 3px solid #10B981;
+}
+
+.toast-success .toast-icon {
+  color: #10B981;
+}
+
+.toast-error {
+  border-left: 3px solid #EF4444;
+}
+
+[dir="rtl"] .toast-error {
+  border-left: none;
+  border-right: 3px solid #EF4444;
+}
+
+.toast-error .toast-icon {
+  color: #EF4444;
+}
+
+.toast-info {
+  border-left: 3px solid var(--accent-primary);
+}
+
+[dir="rtl"] .toast-info {
+  border-left: none;
+  border-right: 3px solid var(--accent-primary);
+}
+
+.toast-info .toast-icon {
+  color: var(--accent-primary);
+}
+
+.toast-warning {
+  border-left: 3px solid var(--huna-orange);
+}
+
+[dir="rtl"] .toast-warning {
+  border-left: none;
+  border-right: 3px solid var(--huna-orange);
+}
+
+.toast-warning .toast-icon {
+  color: var(--huna-orange);
+}
+
+.toast-close {
+  margin-left: auto;
+  padding: var(--space-1);
+  color: var(--text-muted);
+  transition: color var(--transition-fast);
+  flex-shrink: 0;
+}
+
+[dir="rtl"] .toast-close {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.toast-close:hover {
+  color: var(--text-primary);
+}

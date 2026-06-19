@@ -1,0 +1,107 @@
+/* ============================================
+   HUNA Community Section
+   ============================================ */
+
+.community-section {
+  position: relative;
+  background: var(--bg-primary);
+}
+
+.community-section .section-title {
+  font-size: var(--text-4xl);
+}
+
+.community-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  margin-top: var(--space-12);
+}
+
+.community-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  text-align: center;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.community-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--icon-color, var(--accent-primary)) 0%, transparent 50%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  pointer-events: none;
+}
+
+.community-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg), 0 0 40px rgba(var(--icon-color-rgb, 106, 89, 196), 0.1);
+}
+
+.community-card:hover::before {
+  opacity: 1;
+}
+
+.card-icon {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-lg);
+  background: rgba(var(--icon-color-rgb, 106, 89, 196), 0.1);
+  color: var(--icon-color, var(--accent-primary));
+  margin: 0 auto var(--space-6);
+  transition: all var(--transition-base);
+}
+
+.community-card:hover .card-icon {
+  transform: scale(1.1);
+  background: rgba(var(--icon-color-rgb, 106, 89, 196), 0.15);
+}
+
+.card-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.community-card h3 {
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  margin-bottom: var(--space-3);
+  color: var(--text-primary);
+}
+
+.community-card p {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Responsive */
+@media (max-width: 1023px) {
+  .community-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .community-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .community-card {
+    padding: var(--space-6);
+  }
+}

@@ -1,0 +1,152 @@
+/* ============================================
+   HUNA Buttons
+   ============================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  font-family: var(--font-primary);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  border: 1.5px solid transparent;
+  white-space: nowrap;
+}
+
+.btn svg, .btn i {
+  width: 18px;
+  height: 18px;
+}
+
+/* Primary Button */
+.btn-primary {
+  background: var(--accent-gradient);
+  color: var(--text-inverse);
+  border: none;
+  box-shadow: 0 4px 20px rgba(106, 89, 196, 0.3);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(106, 89, 196, 0.4);
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Outline Button */
+.btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--border-secondary);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  background: rgba(106, 89, 196, 0.05);
+}
+
+/* Ghost Button */
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: none;
+}
+
+.btn-ghost:hover {
+  color: var(--text-primary);
+  background: var(--bg-hover);
+}
+
+/* Large Button */
+.btn-large {
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--text-base);
+  border-radius: var(--radius-lg);
+}
+
+.btn-large svg, .btn-large i {
+  width: 20px;
+  height: 20px;
+}
+
+/* Small Button */
+.btn-small {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-xs);
+  border-radius: var(--radius-sm);
+}
+
+/* Icon Button */
+.btn-icon {
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  aspect-ratio: 1;
+}
+
+.btn-icon svg, .btn-icon i {
+  width: 20px;
+  height: 20px;
+}
+
+/* Magnetic Button Effect (JS-enhanced) */
+.btn-magnetic {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Loading state */
+.btn-loading {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.btn-loading::after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-left: var(--space-2);
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Disabled */
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* RTL adjustments */
+[dir="rtl"] .btn svg,
+[dir="rtl"] .btn i {
+  margin-left: 0;
+  margin-right: var(--space-2);
+}

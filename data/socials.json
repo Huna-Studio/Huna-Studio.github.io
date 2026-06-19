@@ -1,0 +1,8 @@
+{
+  "platforms": [
+    { "name": "GitHub", "url": "https://github.com/orgs/huna-studio", "icon": "github" },
+    { "name": "LinkedIn", "url": "https://linkedin.com/company/wearehuna", "icon": "linkedin" },
+    { "name": "YouTube", "url": "https://youtube.com/@wearehuna", "icon": "youtube" },
+    { "name": "WhatsApp", "url": "https://chat.whatsapp.com/G8TJUOBcHrA2uX7iIFysvD", "icon": "message-circle" }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "news": [
+    {
+      "id": 1,
+      "title_en": "HUNA Launches New Web Development Track",
+      "title_ar": "هُنا تُطلق مسار تطوير الويب الجديد",
+      "excerpt_en": "A comprehensive 12-week program covering modern frontend and backend technologies.",
+      "excerpt_ar": "برنامج شامل لمدة 12 أسبوعاً يغطي تقنيات الواجهة الأمامية والخلفية الحديثة.",
+      "image": "assets/images/news-1.jpg",
+      "date": "2026-06-15",
+      "category": "Courses",
+      "category_ar": "دورات",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "title_en": "Community Hackathon: Build for Impact",
+      "title_ar": "هاكاثون المجتمع: ابنِ من أجل التأثير",
+      "excerpt_en": "Join our 48-hour hackathon focused on solving real community problems.",
+      "excerpt_ar": "انضم إلى هاكاثوننا لمدة 48 ساعة يركز على حل مشاكل المجتمع الحقيقية.",
+      "image": "assets/images/news-2.jpg",
+      "date": "2026-06-10",
+      "category": "Events",
+      "category_ar": "فعاليات",
+      "featured": true
+    },
+    {
+      "id": 3,
+      "title_en": "New Partnership with Tech Companies",
+      "title_ar": "شراكة جديدة مع شركات تقنية",
+      "excerpt_en": "HUNA partners with leading tech companies to provide internship opportunities.",
+      "excerpt_ar": "تتعاون هُنا مع شركات تقنية رائدة لتوفير فرص تدريب.",
+      "image": "assets/images/news-3.jpg",
+      "date": "2026-06-05",
+      "category": "Community",
+      "category_ar": "مجتمع",
+      "featured": false
+    }
+  ]
+}

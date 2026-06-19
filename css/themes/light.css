@@ -1,0 +1,51 @@
+/* ============================================
+   HUNA Light Theme
+   ============================================ */
+
+[data-theme="light"] {
+  --bg-primary: #F2F4F7;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #E8EBF0;
+  --bg-card: #FFFFFF;
+  --bg-hover: #E2E6EC;
+  
+  --text-primary: #0D132B;
+  --text-secondary: #4A5568;
+  --text-muted: #718096;
+  --text-inverse: #F2F4F7;
+  
+  --border-primary: rgba(0, 0, 0, 0.08);
+  --border-secondary: rgba(0, 0, 0, 0.12);
+  
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --shadow-glow: 0 0 40px rgba(106, 89, 196, 0.1);
+}
+
+/* Light mode specific overrides */
+[data-theme="light"] .navbar.scrolled {
+  background: rgba(242, 244, 247, 0.9);
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .hero {
+  background: linear-gradient(180deg, #F2F4F7 0%, #FFFFFF 100%);
+}
+
+[data-theme="light"] .shape {
+  opacity: 0.06;
+}
+
+[data-theme="light"] .gradient-orb {
+  opacity: 0.1;
+}
+
+[data-theme="light"] .footer {
+  background: #FFFFFF;
+  border-top-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .mobile-menu {
+  background: rgba(242, 244, 247, 0.98);
+}

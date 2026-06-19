@@ -1,0 +1,28 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "title_en": "Weekly Coding Session",
+      "title_ar": "جلسة برمجة أسبوعية",
+      "description_en": "Join us every Saturday for collaborative coding and problem solving.",
+      "description_ar": "انضم إلينا كل سبت للبرمجة التعاونية وحل المشاكل.",
+      "date": "2026-06-20",
+      "time": "18:00",
+      "location": "Online (Discord)",
+      "type": "workshop",
+      "image": "assets/images/event-1.jpg"
+    },
+    {
+      "id": 2,
+      "title_en": "Design Workshop: Figma Mastery",
+      "title_ar": "ورشة تصميم: إتقان Figma",
+      "description_en": "Learn advanced Figma techniques and design system creation.",
+      "description_ar": "تعلم تقنيات Figma المتقدمة وإنشاء أنظمة التصميم.",
+      "date": "2026-06-25",
+      "time": "19:00",
+      "location": "Online (Zoom)",
+      "type": "workshop",
+      "image": "assets/images/event-2.jpg"
+    }
+  ]
+}

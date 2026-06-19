@@ -1,0 +1,143 @@
+/* ============================================
+   HUNA Modal & Dialog
+   ============================================ */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(13, 19, 43, 0.8);
+  backdrop-filter: blur(8px);
+  z-index: var(--z-modal-backdrop);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-base);
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  max-width: 600px;
+  width: calc(100% - var(--space-8));
+  max-height: 90vh;
+  overflow-y: auto;
+  z-index: var(--z-modal);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-lg);
+}
+
+.modal.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-6);
+}
+
+.modal-title {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+}
+
+.modal-close {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: var(--bg-hover);
+  color: var(--text-secondary);
+  transition: all var(--transition-base);
+}
+
+.modal-close:hover {
+  background: var(--accent-primary);
+  color: var(--text-inverse);
+}
+
+.modal-body {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border-primary);
+}
+
+/* Dialog (smaller modal) */
+.dialog {
+  max-width: 400px;
+  padding: var(--space-6);
+}
+
+.dialog-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto var(--space-4);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialog-icon.success {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10B981;
+}
+
+.dialog-icon.error {
+  background: rgba(239, 68, 68, 0.1);
+  color: #EF4444;
+}
+
+.dialog-icon.info {
+  background: rgba(106, 89, 196, 0.1);
+  color: var(--accent-primary);
+}
+
+.dialog-title {
+  text-align: center;
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  margin-bottom: var(--space-2);
+}
+
+.dialog-text {
+  text-align: center;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-6);
+}
+
+.dialog-actions {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: center;
+}
+
+/* Prevent body scroll when modal is open */
+body.modal-open {
+  overflow: hidden;
+}

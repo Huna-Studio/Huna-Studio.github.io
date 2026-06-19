@@ -1,0 +1,43 @@
+{
+  "tagline_en": "Here. We Grow. We Build. We Impact.",
+  "tagline_ar": "هُنا. ننمو. نبني. نُحدث تأثيراً.",
+  "columns": [
+    {
+      "title_en": "HUNA",
+      "title_ar": "هُنا",
+      "links": [
+        { "label_en": "About Us", "label_ar": "عنّا", "href": "/pages/about.html" },
+        { "label_en": "Our Mission", "label_ar": "مهمتنا", "href": "/pages/about.html#mission" },
+        { "label_en": "Community", "label_ar": "المجتمع", "href": "/pages/about.html#community" },
+        { "label_en": "Roadmap", "label_ar": "خارطة الطريق", "href": "/pages/about.html#roadmap" }
+      ]
+    },
+    {
+      "title_en": "Learn",
+      "title_ar": "تعلم",
+      "links": [
+        { "label_en": "Courses", "label_ar": "الدورات", "href": "/pages/courses.html" },
+        { "label_en": "Projects", "label_ar": "المشاريع", "href": "/pages/projects.html" },
+        { "label_en": "Documentation", "label_ar": "التوثيق", "href": "/pages/docs/index.html" },
+        { "label_en": "Articles", "label_ar": "المقالات", "href": "/pages/docs/index.html" }
+      ]
+    },
+    {
+      "title_en": "Participate",
+      "title_ar": "شارك",
+      "links": [
+        { "label_en": "Volunteer", "label_ar": "تطوع", "href": "/pages/volunteer.html" },
+        { "label_en": "Contact", "label_ar": "تواصل", "href": "/pages/contact.html" },
+        { "label_en": "Partners", "label_ar": "الشركاء", "href": "/pages/about.html#partners" }
+      ]
+    }
+  ],
+  "bottom": {
+    "copyright_en": "© 2026 HUNA Community. All rights reserved.",
+    "copyright_ar": "© 2026 مجتمع هُنا. جميع الحقوق محفوظة.",
+    "links": [
+      { "label_en": "Privacy Policy", "label_ar": "سياسة الخصوصية", "href": "#" },
+      { "label_en": "Terms of Service", "label_ar": "شروط الخدمة", "href": "#" }
+    ]
+  }
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="comingSoon.title">Coming Soon - HUNA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/pages/coming-soon.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body data-page="coming-soon">
+    <div class="coming-soon-page">
+        <div class="coming-soon-bg">
+            <div class="coming-soon-grid"></div>
+        </div>
+        
+        <div class="coming-soon-content">
+            <a href="/" class="coming-soon-logo">
+                <img src="../assets/logo-icon.svg" alt="HUNA" width="48" height="48">
+                <span>HUNA</span>
+            </a>
+            
+            <div class="coming-soon-illustration">
+                <i data-lucide="rocket" class="coming-soon-icon"></i>
+                <div class="coming-soon-orbit"></div>
+            </div>
+            
+            <h1 class="coming-soon-title" data-i18n="comingSoon.heading">Coming Soon</h1>
+            <p class="coming-soon-desc" data-i18n="comingSoon.desc">
+                We're building something amazing. Stay tuned for updates.
+            </p>
+            
+            <div class="coming-soon-countdown" id="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">00</span>
+                    <span class="countdown-label" data-i18n="comingSoon.days">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-label" data-i18n="comingSoon.hours">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-label" data-i18n="comingSoon.minutes">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-label" data-i18n="comingSoon.seconds">Seconds</span>
+                </div>
+            </div>
+            
+            <a href="/" class="coming-soon-back">
+                <i data-lucide="arrow-left"></i>
+                <span data-i18n="comingSoon.backHome">Back to Home</span>
+            </a>
+        </div>
+    </div>
+
+    <script type="module">
+        import { AppState } from '../js/core/state.js';
+        import { loadTranslations } from '../js/core/i18n.js';
+        
+        // Set lang/dir
+        document.documentElement.lang = AppState.lang;
+        document.documentElement.dir = AppState.lang === 'ar' ? 'rtl' : 'ltr';
+        
+        // Load translations
+        await loadTranslations(AppState.lang);
+        
+        // Icons
+        if (window.lucide) lucide.createIcons();
+        
+        // Countdown (set your launch date)
+        const LAUNCH_DATE = new Date('2026-07-01T00:00:00').getTime();
+        
+        function updateCountdown() {
+            const now = Date.now();
+            const diff = LAUNCH_DATE - now;
+            
+            if (diff <= 0) {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+                return;
+            }
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+        
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>

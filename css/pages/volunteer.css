@@ -1,0 +1,286 @@
+/* ============================================
+   HUNA Volunteer Page Styles
+   ============================================ */
+
+.volunteer-page .page-header {
+  padding-top: 140px;
+  padding-bottom: var(--space-16);
+  text-align: center;
+  background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+}
+
+/* Benefits Grid */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  margin-top: var(--space-12);
+}
+
+.benefit-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  text-align: center;
+  transition: all var(--transition-base);
+}
+
+.benefit-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent-primary);
+}
+
+.benefit-icon {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-xl);
+  margin: 0 auto var(--space-6);
+  font-size: var(--text-3xl);
+}
+
+.benefit-card h3 {
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  margin-bottom: var(--space-3);
+}
+
+.benefit-card p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: var(--text-sm);
+}
+
+/* Roles Grid */
+.roles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+  margin-top: var(--space-12);
+}
+
+.role-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  transition: all var(--transition-base);
+  display: flex;
+  gap: var(--space-6);
+  align-items: flex-start;
+}
+
+.role-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent-primary);
+}
+
+.role-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-lg);
+  background: rgba(106, 89, 196, 0.1);
+  color: var(--accent-primary);
+  flex-shrink: 0;
+}
+
+.role-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.role-content h3 {
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  margin-bottom: var(--space-2);
+}
+
+.role-content p {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  margin-bottom: var(--space-3);
+}
+
+.role-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.role-tags span {
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--text-xs);
+  border-radius: var(--radius-full);
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+}
+
+/* Form Container */
+.form-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+.volunteer-form {
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-10);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+}
+
+/* Skills Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+
+.skill-checkbox {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.skill-checkbox:hover {
+  border-color: var(--accent-primary);
+  background: rgba(106, 89, 196, 0.05);
+}
+
+.skill-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent-primary);
+  cursor: pointer;
+}
+
+.skill-checkbox input:checked + .skill-label,
+.skill-checkbox:has(input:checked) {
+  background: rgba(106, 89, 196, 0.1);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.skill-label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-secondary);
+  cursor: pointer;
+  flex: 1;
+}
+
+/* File Upload */
+.file-upload {
+  border: 2px dashed var(--border-secondary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  text-align: center;
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.file-upload:hover,
+.file-upload.dragover {
+  border-color: var(--accent-primary);
+  background: rgba(106, 89, 196, 0.05);
+}
+
+.file-upload input[type="file"] {
+  display: none;
+}
+
+/* Success State */
+.form-success-state {
+  text-align: center;
+  padding: var(--space-16);
+}
+
+.form-success-state .success-icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.1);
+  color: #10B981;
+  margin: 0 auto var(--space-6);
+}
+
+.form-success-state h3 {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  margin-bottom: var(--space-3);
+}
+
+.form-success-state p {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-6);
+}
+
+/* Responsive */
+@media (max-width: 1023px) {
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .roles-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .volunteer-form {
+    padding: var(--space-6);
+  }
+  
+  .role-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .role-icon {
+    margin: 0 auto;
+  }
+  
+  .role-tags {
+    justify-content: center;
+  }
+}

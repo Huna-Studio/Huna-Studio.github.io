@@ -1,0 +1,39 @@
+{
+  "faqs": [
+    {
+      "id": 1,
+      "question_en": "What is HUNA?",
+      "question_ar": "ما هو هُنا؟",
+      "answer_en": "HUNA is a community where people come together to learn, build, and execute. We are not a company, academy, or coaching platform — we are a group of passionate individuals who grow together.",
+      "answer_ar": "هُنا هو مجتمع يجتمع فيه الناس للتعلم والبناء والتنفيذ. نحن لسنا شركة أو أكاديمية أو منصة تدريب — نحن مجموعة من الأفراد المتحمسين الذين ينمون معاً."
+    },
+    {
+      "id": 2,
+      "question_en": "Is HUNA free to join?",
+      "question_ar": "هل الانضمام إلى هُنا مجاني؟",
+      "answer_en": "Yes! HUNA is completely free to join. All our courses, workshops, and community events are open to everyone.",
+      "answer_ar": "نعم! الانضمام إلى هُنا مجاني تماماً. جميع دوراتنا وورش عملنا وفعاليات مجتمعنا مفتوحة للجميع."
+    },
+    {
+      "id": 3,
+      "question_en": "Do I need prior experience?",
+      "question_ar": "هل أحتاج إلى خبرة سابقة؟",
+      "answer_en": "Not at all. HUNA welcomes everyone from complete beginners to experienced professionals. We have tracks for every level.",
+      "answer_ar": "على الإطلاق. ترحب هُنا بالجميع من المبتدئين الكاملين إلى المحترفين ذوي الخبرة. لدينا مسارات لكل مستوى."
+    },
+    {
+      "id": 4,
+      "question_en": "How can I contribute?",
+      "question_ar": "كيف يمكنني المساهمة؟",
+      "answer_en": "You can volunteer as a mentor, contribute to open-source projects, help organize events, or create content. Visit our Volunteer page to get started.",
+      "answer_ar": "يمكنك التطوع كمرشد، أو المساهمة في مشاريع مفتوحة المصدر، أو المساعدة في تنظيم الفعاليات، أو إنشاء محتوى. قم بزيارة صفحة التطوع للبدء."
+    },
+    {
+      "id": 5,
+      "question_en": "Where is HUNA based?",
+      "question_ar": "أين يقع مقر هُنا؟",
+      "answer_en": "HUNA started in Damietta, Egypt, but our community spans across 10+ countries. We operate primarily online with local meetups.",
+      "answer_ar": "بدأت هُنا في دمياط، مصر، لكن مجتمعنا يمتد عبر أكثر من 10 دول. نعمل بشكل أساسي عبر الإنترنت مع لقاءات محلية."
+    }
+  ]
+}
