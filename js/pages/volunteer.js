@@ -125,11 +125,131 @@ export function loadRoles() {
   `).join('');
 }
 
+// export function initVolunteerForm() {
+//   const form = document.getElementById('volunteer-form');
+//   if (!form) return;
+  
+//   // File upload
+//   const uploadArea = document.getElementById('resume-upload');
+//   const fileInput = document.getElementById('volunteer-resume');
+//   const fileName = document.getElementById('file-name');
+  
+//   if (uploadArea && fileInput) {
+//     uploadArea.addEventListener('click', () => fileInput.click());
+    
+//     uploadArea.addEventListener('dragover', (e) => {
+//       e.preventDefault();
+//       uploadArea.classList.add('dragover');
+//     });
+    
+//     uploadArea.addEventListener('dragleave', () => {
+//       uploadArea.classList.remove('dragover');
+//     });
+    
+//     uploadArea.addEventListener('drop', (e) => {
+//       e.preventDefault();
+//       uploadArea.classList.remove('dragover');
+//       const files = e.dataTransfer.files;
+//       if (files.length) {
+//         fileInput.files = files;
+//         updateFileName(files[0]);
+//       }
+//     });
+    
+//     fileInput.addEventListener('change', () => {
+//       if (fileInput.files.length) {
+//         updateFileName(fileInput.files[0]);
+//       }
+//     });
+//   }
+  
+//   function updateFileName(file) {
+//     if (fileName) {
+//       fileName.textContent = file.name;
+//       fileName.style.color = 'var(--accent-primary)';
+//     }
+//   }
+  
+//   // Form submission
+//   form.addEventListener('submit', async (e) => {
+//     e.preventDefault();
+    
+//     const formData = {
+//       name: document.getElementById('volunteer-name').value.trim(),
+//       email: document.getElementById('volunteer-email').value.trim(),
+//       phone: document.getElementById('volunteer-phone')?.value.trim() || '',
+//       location: document.getElementById('volunteer-location')?.value.trim() || '',
+//       role: document.getElementById('volunteer-role').value,
+//       skills: Array.from(form.querySelectorAll('input[name="skills"]:checked')).map(cb => cb.value),
+//       availability: document.getElementById('volunteer-availability')?.value || '',
+//       github: document.getElementById('volunteer-github')?.value.trim() || '',
+//       linkedin: document.getElementById('volunteer-linkedin')?.value.trim() || '',
+//       message: document.getElementById('volunteer-message').value.trim(),
+//       hasResume: fileInput?.files.length > 0,
+//       submittedAt: new Date().toISOString()
+//     };
+    
+//     // Validation
+//     if (!formData.name || !formData.email || !formData.role || !formData.message) {
+//       error('Please fill in all required fields.');
+//       return;
+//     }
+
+//     // ADD THIS:
+//     if (formData.skills.length === 0) {
+//       error('Please select at least one skill.');
+//       return;
+//     }
+    
+//     if (!formData.email.includes('@')) {
+//       error('Please enter a valid email address.');
+//       return;
+//     }
+    
+//     const submitBtn = form.querySelector('button[type="submit"]');
+//     submitBtn.classList.add('btn-loading');
+//     submitBtn.disabled = true;
+    
+//     try {
+//       // Simulate API call
+//       await new Promise(resolve => setTimeout(resolve, 2000));
+      
+//       // Store in localStorage for demo
+//       const submissions = JSON.parse(localStorage.getItem('huna-volunteer-submissions') || '[]');
+//       submissions.push(formData);
+//       localStorage.setItem('huna-volunteer-submissions', JSON.stringify(submissions));
+      
+//       // Show success
+//       form.innerHTML = `
+//         <div class="form-success-state">
+//           <div class="success-icon">
+//             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+//           </div>
+//           <h3 data-i18n="form_success_title">Application Submitted!</h3>
+//           <p data-i18n="form_success_desc">Thank you for your interest. We'll review your application and get back to you within 48 hours.</p>
+//           <button type="button" class="btn btn-primary" onclick="location.reload()" data-i18n="form_submit_another">Submit Another</button>
+//         </div>
+//       `;
+      
+//       success('Application submitted successfully!');
+      
+//     } catch (e) {
+//       error('Something went wrong. Please try again.');
+//       submitBtn.classList.remove('btn-loading');
+//       submitBtn.disabled = false;
+//     }
+//   });
+// }
+
 export function initVolunteerForm() {
   const form = document.getElementById('volunteer-form');
   if (!form) return;
   
-  // File upload
+  // === SUPABASE CREDENTIALS ===
+  const SUPABASE_URL = 'https://lojpykmjzhgvyxiwvert.supabase.co';
+  const SUPABASE_ANON_KEY = 'sb_publishable_ylBmAKXCYaWwDDfXpCLLEA_r0vxLMMA';
+  
+  // File upload UI selectors
   const uploadArea = document.getElementById('resume-upload');
   const fileInput = document.getElementById('volunteer-resume');
   const fileName = document.getElementById('file-name');
@@ -174,72 +294,99 @@ export function initVolunteerForm() {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     
-    const formData = {
-      name: document.getElementById('volunteer-name').value.trim(),
-      email: document.getElementById('volunteer-email').value.trim(),
-      phone: document.getElementById('volunteer-phone')?.value.trim() || '',
-      location: document.getElementById('volunteer-location')?.value.trim() || '',
-      role: document.getElementById('volunteer-role').value,
-      skills: Array.from(form.querySelectorAll('input[name="skills"]:checked')).map(cb => cb.value),
-      availability: document.getElementById('volunteer-availability')?.value || '',
-      github: document.getElementById('volunteer-github')?.value.trim() || '',
-      linkedin: document.getElementById('volunteer-linkedin')?.value.trim() || '',
-      message: document.getElementById('volunteer-message').value.trim(),
-      hasResume: fileInput?.files.length > 0,
-      submittedAt: new Date().toISOString()
-    };
-    
-    // Validation
-    if (!formData.name || !formData.email || !formData.role || !formData.message) {
-      error('Please fill in all required fields.');
-      return;
-    }
-
-    // ADD THIS:
-    if (formData.skills.length === 0) {
-      error('Please select at least one skill.');
+    const globalSupabase = window.supabase || window.libsupabase;
+    if (!globalSupabase) {
+      alert('Database connection utility failed to load. Please reload.');
       return;
     }
     
-    if (!formData.email.includes('@')) {
-      error('Please enter a valid email address.');
-      return;
-    }
+    const supabase = globalSupabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     
     const submitBtn = form.querySelector('button[type="submit"]');
+    const originalBtnHTML = submitBtn.innerHTML;
     submitBtn.classList.add('btn-loading');
     submitBtn.disabled = true;
+    submitBtn.innerHTML = 'Processing...';
     
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      let resumeUrl = '';
+
+      // 1. UPLOAD THE ACTUAL FILE IF IT EXISTS
+      if (fileInput?.files.length > 0) {
+        const file = fileInput.files[0];
+        // Create a unique filename using timestamp to avoid overwriting files
+        const fileExt = file.name.split('.').pop();
+        const fileName = `${Date.now()}-${Math.random().toString(36).substring(2, 7)}.${fileExt}`;
+        const filePath = `public/${fileName}`;
+
+        const { error: uploadError } = await supabase.storage
+          .from('resumes')
+          .upload(filePath, file);
+
+        if (uploadError) throw uploadError;
+
+        // Get the public URL of the uploaded file
+        const { data: urlData } = supabase.storage
+          .from('resumes')
+          .getPublicUrl(filePath);
+          
+        resumeUrl = urlData.publicUrl;
+      }
+
+      // 2. PREPARE THE DATA OBJECT
+      const formData = {
+        name: document.getElementById('volunteer-name').value.trim(),
+        email: document.getElementById('volunteer-email').value.trim(),
+        phone: document.getElementById('volunteer-phone')?.value.trim() || '',
+        location: document.getElementById('volunteer-location')?.value.trim() || '',
+        role: document.getElementById('volunteer-role').value,
+        skills: Array.from(form.querySelectorAll('input[name="skills"]:checked')).map(cb => cb.value),
+        availability: document.getElementById('volunteer-availability')?.value || '',
+        github: document.getElementById('volunteer-github')?.value.trim() || '',
+        linkedin: document.getElementById('volunteer-linkedin')?.value.trim() || '',
+        message: document.getElementById('volunteer-message').value.trim(),
+        resume_url: resumeUrl, // Storing the direct link to the file here!
+        submitted_at: new Date().toISOString()
+      };
       
-      // Store in localStorage for demo
-      const submissions = JSON.parse(localStorage.getItem('huna-volunteer-submissions') || '[]');
-      submissions.push(formData);
-      localStorage.setItem('huna-volunteer-submissions', JSON.stringify(submissions));
+      // Validations
+      if (!formData.name || !formData.email || !formData.role || !formData.message) {
+        alert('Please fill in all required fields.');
+        submitBtn.classList.remove('btn-loading');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnHTML;
+        return;
+      }
       
-      // Show success
+      // 3. INSERT INTO THE DATABASE TABLE
+      const { error: sbError } = await supabase
+        .from('volunteers')
+        .insert([formData]);
+
+      if (sbError) throw sbError;
+      
+      // Success State Update
       form.innerHTML = `
         <div class="form-success-state">
           <div class="success-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
           </div>
-          <h3 data-i18n="form_success_title">Application Submitted!</h3>
-          <p data-i18n="form_success_desc">Thank you for your interest. We'll review your application and get back to you within 48 hours.</p>
-          <button type="button" class="btn btn-primary" onclick="location.reload()" data-i18n="form_submit_another">Submit Another</button>
+          <h3>Application Submitted!</h3>
+          <p>Thank you for your interest! We have saved your application and resume directly to our database.</p>
+          <button type="button" class="btn btn-primary" onclick="location.reload()">Submit Another</button>
         </div>
       `;
       
-      success('Application submitted successfully!');
-      
     } catch (e) {
-      error('Something went wrong. Please try again.');
+      console.error('[Supabase Post Error]:', e);
+      alert('Something went wrong sending data to server. Please try again.');
       submitBtn.classList.remove('btn-loading');
       submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnHTML;
     }
   });
 }
+
 
 export async function initVolunteerPage() {
   loadBenefits();

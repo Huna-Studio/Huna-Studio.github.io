@@ -20,8 +20,8 @@
     "icon": "user-plus"
   },
   "langToggle": {
-    "label_en": "العربية",
-    "label_ar": "English"
+    "label_en": "English",
+    "label_ar": "العربية"
   },
   "themeToggle": {
     "label_en": "Theme",

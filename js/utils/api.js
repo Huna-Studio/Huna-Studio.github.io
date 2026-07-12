@@ -75,7 +75,7 @@ async function storeForSync(data) {
 export async function subscribeNewsletter(email) {
   // TODO: Replace with actual endpoint when backend is ready
   // return submitForm({ email, type: 'newsletter' }, '/api/newsletter');
-  
+  console.log("done");
   // Simulated for now
   await new Promise(r => setTimeout(r, 1000));
   return { success: true };

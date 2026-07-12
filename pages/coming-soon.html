@@ -1,90 +1,472 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" data-theme="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="HUNA - Developer Community. Something amazing is coming soon. Join us on WhatsApp, LinkedIn, YouTube, and GitHub.">
+    <meta name="theme-color" content="#0D132B">
+    <meta name="color-scheme" content="dark light">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Coming Soon - HUNA">
+    <meta property="og:description" content="We're building something amazing for the developer community. Stay tuned.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="../assets/images/Huna-logo-(no-bg).png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Coming Soon - HUNA">
+    <meta name="twitter:description" content="We're building something amazing for the developer community.">
+    
     <title data-i18n="comingSoon.title">Coming Soon - HUNA</title>
+    
+    <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/pages/coming-soon.css">
+    
+    <!-- PWA -->
+    <link rel="manifest" href="../manifest.json">
+    <link rel="apple-touch-icon" href="../assets/icons/icon-192x192.png">
+    <link rel="icon" type="image/png" href="../assets/images/Huna-logo-(no-bg).png">
+
+    
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body data-page="coming-soon">
-    <div class="coming-soon-page">
+    
+    <!-- Skeleton Preloader -->
+    <div id="preloader" class="cs-preloader" role="status" aria-label="Loading">
+        <div class="cs-preloader-inner">
+            <div class="cs-preloader-logo">
+                <img src="../assets/images/Huna-logo-(no-bg).png" alt="" width="48" height="48" aria-hidden="true">
+            </div>
+            <div class="cs-preloader-bar">
+                <div class="cs-preloader-progress"></div>
+            </div>
+            <p class="cs-preloader-text">Loading HUNA...</p>
+        </div>
+    </div>
+    
+    <!-- Floating Controls -->
+    <div class="cs-floating-controls">
+        <!-- Language Toggle -->
+        <button 
+            type="button" 
+            class="cs-floating-btn cs-lang-btn" 
+            id="lang-toggle"
+            aria-label="Toggle language"
+            title="Toggle language"
+        >
+            <span class="cs-lang-current">EN</span>
+            <i data-lucide="globe" class="cs-floating-icon"></i>
+        </button>
+        
+        <!-- Theme Toggle -->
+        <button 
+            type="button" 
+            class="cs-floating-btn cs-theme-btn" 
+            id="theme-toggle"
+            aria-label="Toggle theme"
+            title="Toggle theme"
+        >
+            <i data-lucide="sun" class="cs-theme-icon-light"></i>
+            <i data-lucide="moon" class="cs-theme-icon-dark"></i>
+        </button>
+    </div>
+    
+    <!-- Main Page -->
+    <div class="coming-soon-page" id="main-content" style="opacity:0;">
+        
+        <!-- Animated Background -->
         <div class="coming-soon-bg">
+            <div class="cs-gradient-mesh">
+                <div class="cs-mesh-blob cs-mesh-blob-1"></div>
+                <div class="cs-mesh-blob cs-mesh-blob-2"></div>
+                <div class="cs-mesh-blob cs-mesh-blob-3"></div>
+            </div>
             <div class="coming-soon-grid"></div>
+            <canvas id="particles-canvas" class="cs-particles" aria-hidden="true"></canvas>
         </div>
         
+        <!-- Content -->
         <div class="coming-soon-content">
+            
+            <!-- Logo -->
             <a href="/" class="coming-soon-logo">
-                <img src="../assets/logo-icon.svg" alt="HUNA" width="48" height="48">
+                <img src="../assets/images/Huna-logo-(no-bg).png" alt="HUNA" width="48" height="48">
                 <span>HUNA</span>
             </a>
             
+            <!-- Illustration -->
             <div class="coming-soon-illustration">
-                <i data-lucide="rocket" class="coming-soon-icon"></i>
+                <div class="cs-rocket-container">
+                    <i data-lucide="rocket" class="coming-soon-icon"></i>
+                    <div class="cs-rocket-trail"></div>
+                </div>
                 <div class="coming-soon-orbit"></div>
+                <div class="cs-orbit-dot"></div>
             </div>
             
+            <!-- Title & Description -->
             <h1 class="coming-soon-title" data-i18n="comingSoon.heading">Coming Soon</h1>
             <p class="coming-soon-desc" data-i18n="comingSoon.desc">
-                We're building something amazing. Stay tuned for updates.
+                We're building something amazing for the developer community. Stay tuned for updates.
             </p>
             
-            <div class="coming-soon-countdown" id="countdown">
+            <!-- Progress Bar -->
+            <div class="cs-progress-section">
+                <div class="cs-progress-header">
+                    <span class="cs-progress-label" data-i18n="comingSoon.progressLabel">Launch Progress</span>
+                    <span class="cs-progress-percent" data-i18n="comingSoon.progressPercent">70% Complete</span>
+                </div>
+                <div class="cs-progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                    <div class="cs-progress-fill" style="width: 0%;" data-target="70"></div>
+                    <div class="cs-progress-glow"></div>
+                </div>
+                <div class="cs-milestones">
+                    <div class="cs-milestone cs-milestone-complete">
+                        <div class="cs-milestone-dot"></div>
+                        <span class="cs-milestone-label" data-i18n="comingSoon.milestonePlan">Plan</span>
+                    </div>
+                    <div class="cs-milestone cs-milestone-complete">
+                        <div class="cs-milestone-dot"></div>
+                        <span class="cs-milestone-label" data-i18n="comingSoon.milestoneExecution">Execution</span>
+                    </div>
+                    <div class="cs-milestone cs-milestone-active">
+                        <div class="cs-milestone-dot"></div>
+                        <span class="cs-milestone-label" data-i18n="comingSoon.milestoneContent">Content</span>
+                    </div>
+                    <div class="cs-milestone">
+                        <div class="cs-milestone-dot"></div>
+                        <span class="cs-milestone-label" data-i18n="comingSoon.milestoneLaunch">Launch</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Countdown -->
+            <div class="coming-soon-countdown" id="countdown" role="timer" aria-label="Countdown to launch">
                 <div class="countdown-item">
-                    <span class="countdown-number" id="days">00</span>
+                    <div class="countdown-card">
+                        <span class="countdown-number" id="days">00</span>
+                    </div>
                     <span class="countdown-label" data-i18n="comingSoon.days">Days</span>
                 </div>
+                <div class="countdown-separator">:</div>
                 <div class="countdown-item">
-                    <span class="countdown-number" id="hours">00</span>
+                    <div class="countdown-card">
+                        <span class="countdown-number" id="hours">00</span>
+                    </div>
                     <span class="countdown-label" data-i18n="comingSoon.hours">Hours</span>
                 </div>
+                <div class="countdown-separator">:</div>
                 <div class="countdown-item">
-                    <span class="countdown-number" id="minutes">00</span>
+                    <div class="countdown-card">
+                        <span class="countdown-number" id="minutes">00</span>
+                    </div>
                     <span class="countdown-label" data-i18n="comingSoon.minutes">Minutes</span>
                 </div>
+                <div class="countdown-separator">:</div>
                 <div class="countdown-item">
-                    <span class="countdown-number" id="seconds">00</span>
+                    <div class="countdown-card">
+                        <span class="countdown-number" id="seconds">00</span>
+                    </div>
                     <span class="countdown-label" data-i18n="comingSoon.seconds">Seconds</span>
                 </div>
             </div>
             
+            <!-- WhatsApp Notify -->
+            <div class="coming-soon-notify">
+                <div class="cs-notify-card glass">
+                    <div class="cs-notify-icon">
+                        <i data-lucide="message-circle"></i>
+                    </div>
+                    <p class="cs-notify-title" data-i18n="comingSoon.notifyLabel">Get notified on WhatsApp</p>
+                    <form id="notify-form" class="cs-notify-form" novalidate>
+                        <div class="cs-phone-input">
+                            <select class="cs-country-select" id="country-code" aria-label="Country code">
+                                <option value="+20" selected>🇪🇬 +20</option>
+                                <option value="+966">🇸🇦 +966</option>
+                                <option value="+971">🇦🇪 +971</option>
+                                <option value="+974">🇶🇦 +974</option>
+                                <option value="+965">🇰🇼 +965</option>
+                                <option value="+973">🇧🇭 +973</option>
+                                <option value="+968">🇴🇲 +968</option>
+                                <option value="+962">🇯🇴 +962</option>
+                                <option value="+961">🇱🇧 +961</option>
+                                <option value="+963">🇸🇾 +963</option>
+                                <option value="+964">🇮🇶 +964</option>
+                                <option value="+970">🇵🇸 +970</option>
+                                <option value="+216">🇹🇳 +216</option>
+                                <option value="+213">🇩🇿 +213</option>
+                                <option value="+212">🇲🇦 +212</option>
+                                <option value="+218">🇱🇾 +218</option>
+                                <option value="+249">🇸🇩 +249</option>
+                                <option value="+252">🇸🇴 +252</option>
+                                <option value="+253">🇩🇯 +253</option>
+                                <option value="+1">🇺🇸 +1</option>
+                                <option value="+44">🇬🇧 +44</option>
+                                <option value="+49">🇩🇪 +49</option>
+                                <option value="+33">🇫🇷 +33</option>
+                                <option value="+91">🇮🇳 +91</option>
+                                <option value="+92">🇵🇰 +92</option>
+                                <option value="+90">🇹🇷 +90</option>
+                            </select>
+                            <input 
+                                type="tel" 
+                                id="phone-input"
+                                class="cs-phone-field" 
+                                placeholder="1XX XXX XXXX" 
+                                required
+                                pattern="[0-9\\s]{7,15}"
+                                inputmode="tel"
+                                autocomplete="tel"
+                                aria-describedby="phone-help"
+                            >
+                        </div>
+                        <p class="cs-input-hint" id="phone-help">We'll send you a WhatsApp message when we launch</p>
+                        <button type="submit" class="btn btn-primary cs-notify-btn" id="notify-submit">
+                            <i data-lucide="bell"></i>
+                            <span data-i18n="comingSoon.notifyBtn">Notify Me</span>
+                        </button>
+                    </form>
+                    
+                    <!-- Success State -->
+                    <div class="cs-notify-success" id="notify-success" hidden>
+                        <div class="cs-success-icon">
+                            <i data-lucide="check-circle-2"></i>
+                        </div>
+                        <p class="cs-success-title" data-i18n="comingSoon.notifySuccess">You're on the list! 🎉</p>
+                        <p class="cs-success-desc">We'll message you on WhatsApp when HUNA goes live.</p>
+                        <a 
+                            href="https://chat.whatsapp.com/G8TJUOBcHrA2uX7iIFysvD" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            class="btn btn-secondary cs-community-btn"
+                        >
+                            <i data-lucide="message-circle"></i>
+                            <span data-i18n="comingSoon.joinCommunity">Join WhatsApp Community</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Volunteer CTA -->
+            <div class="cs-volunteer-section">
+                <div class="cs-volunteer-card glass">
+                    <div class="cs-volunteer-pulse"></div>
+                    <div class="cs-volunteer-content">
+                        <div class="cs-volunteer-icon">
+                            <i data-lucide="users"></i>
+                        </div>
+                        <h3 class="cs-volunteer-title" data-i18n="comingSoon.volunteerTitle">Want to help build HUNA?</h3>
+                        <p class="cs-volunteer-desc" data-i18n="comingSoon.volunteerDesc">
+                            We're looking for passionate developers, designers, and content creators.
+                        </p>
+                        <a 
+                            href="volunteer.html" 
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-primary cs-volunteer-btn"
+                        >
+                            <i data-lucide="hand-heart"></i>
+                            <span data-i18n="comingSoon.volunteerBtn">Join as Volunteer</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Social Media -->
+            <div class="cs-social-section">
+                <p class="cs-social-label" data-i18n="comingSoon.followUs">Follow our journey</p>
+                <div class="cs-social-dock">
+                    <a 
+                        href="https://www.linkedin.com/company/wearehuna" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="cs-social-link cs-social-linkedin"
+                        aria-label="LinkedIn"
+                    >
+                        <i data-lucide="share-2"></i>
+                        <span class="cs-social-tooltip">LinkedIn</span>
+                    </a>
+                    <a 
+                        href="https://www.youtube.com/@wearehuna" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="cs-social-link cs-social-youtube"
+                        aria-label="YouTube"
+                    >
+                        <i data-lucide="monitor-play"></i>
+                        <span class="cs-social-tooltip">YouTube</span>
+                    </a>
+                    <a 
+                        href="https://chat.whatsapp.com/G8TJUOBcHrA2uX7iIFysvD" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="cs-social-link cs-social-whatsapp"
+                        aria-label="WhatsApp Community"
+                    >
+                        <i data-lucide="message-circle"></i>
+                        <span class="cs-social-tooltip">WhatsApp</span>
+                    </a>
+                    <a 
+                        href="https://github.com/organizations/huna-studio" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="cs-social-link cs-social-github"
+                        aria-label="GitHub"
+                    >
+                        <i data-lucide="computer"></i>
+                        <span class="cs-social-tooltip">GitHub</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Share Section -->
+            <div class="cs-share-section">
+                <p class="cs-share-label" data-i18n="comingSoon.shareLabel">Share with friends</p>
+                <div class="cs-share-buttons">
+                    <button type="button" class="cs-share-btn cs-share-native" id="share-native" hidden>
+                        <i data-lucide="share-2"></i>
+                        <span data-i18n="comingSoon.shareBtn">Share</span>
+                    </button>
+                    <button type="button" class="cs-share-btn cs-share-copy" id="share-copy">
+                        <i data-lucide="link"></i>
+                        <span data-i18n="comingSoon.copyLink">Copy Link</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Back to Home -->
             <a href="/" class="coming-soon-back">
                 <i data-lucide="arrow-left"></i>
                 <span data-i18n="comingSoon.backHome">Back to Home</span>
             </a>
+            
         </div>
     </div>
+    
+    <!-- Mobile Bottom Bar -->
+    <div class="cs-mobile-bar">
+        <a href="volunteer.html" target="_blank" rel="noopener noreferrer" class="cs-mobile-bar-btn cs-mobile-volunteer">
+            <i data-lucide="hand-heart"></i>
+            <span>Volunteer</span>
+        </a>
+        <button type="button" class="cs-mobile-bar-btn cs-mobile-share" id="mobile-share">
+            <i data-lucide="share-2"></i>
+            <span>Share</span>
+        </button>
+        <a href="https://chat.whatsapp.com/G8TJUOBcHrA2uX7iIFysvD" target="_blank" rel="noopener noreferrer" class="cs-mobile-bar-btn cs-mobile-whatsapp">
+            <i data-lucide="message-circle"></i>
+            <span>Community</span>
+        </a>
+    </div>
+    
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
 
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- Scripts -->
     <script type="module">
         import { AppState } from '../js/core/state.js';
         import { loadTranslations } from '../js/core/i18n.js';
         
-        // Set lang/dir
-        document.documentElement.lang = AppState.lang;
-        document.documentElement.dir = AppState.lang === 'ar' ? 'rtl' : 'ltr';
+        // ============================================================
+        // PRELOADER
+        // ============================================================
+        function hidePreloader() {
+            const preloader = document.getElementById('preloader');
+            const main = document.getElementById('main-content');
+            if (!preloader) return;
+            
+            preloader.classList.add('cs-preloader-hidden');
+            setTimeout(() => {
+                preloader.style.display = 'none';
+                if (main) {
+                    main.style.transition = 'opacity 0.6s ease';
+                    main.style.opacity = '1';
+                }
+                initAnimations();
+            }, 500);
+        }
         
-        // Load translations
-        await loadTranslations(AppState.lang);
+        // ============================================================
+        // THEME
+        // ============================================================
+        function initTheme() {
+            const saved = localStorage.getItem('huna-theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', saved);
+            updateThemeIcon(saved);
+        }
         
-        // Icons
-        if (window.lucide) lucide.createIcons();
+        function toggleTheme() {
+            const current = document.documentElement.getAttribute('data-theme') || 'dark';
+            const next = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('huna-theme', next);
+            updateThemeIcon(next);
+        }
         
-        // Countdown (set your launch date)
-        const LAUNCH_DATE = new Date('2026-07-01T00:00:00').getTime();
+        function updateThemeIcon(theme) {
+            const btn = document.getElementById('theme-toggle');
+            if (!btn) return;
+            btn.setAttribute('aria-pressed', theme === 'dark');
+        }
+        
+        // ============================================================
+        // LANGUAGE
+        // ============================================================
+        async function initLanguage() {
+            const saved = localStorage.getItem('huna-lang') || 'en';
+            AppState.lang = saved;
+            document.documentElement.lang = saved;
+            document.documentElement.dir = saved === 'ar' ? 'rtl' : 'ltr';
+            await loadTranslations(saved);
+            updateLangButton(saved);
+        }
+        
+        async function toggleLanguage() {
+            const current = AppState.lang || 'en';
+            const next = current === 'en' ? 'ar' : 'en';
+            AppState.lang = next;
+            localStorage.setItem('huna-lang', next);
+            document.documentElement.lang = next;
+            document.documentElement.dir = next === 'ar' ? 'rtl' : 'ltr';
+            await loadTranslations(next);
+            updateLangButton(next);
+            
+            // Re-init countdown labels
+            updateCountdown();
+        }
+        
+        function updateLangButton(lang) {
+            const btn = document.querySelector('.cs-lang-current');
+            if (btn) btn.textContent = lang.toUpperCase();
+        }
+        
+        // ============================================================
+        // COUNTDOWN
+        // ============================================================
+        const LAUNCH_DATE = new Date('2026-09-09T00:00:00').getTime();
+        let countdownInterval;
         
         function updateCountdown() {
             const now = Date.now();
             const diff = LAUNCH_DATE - now;
             
             if (diff <= 0) {
-                document.getElementById('days').textContent = '00';
-                document.getElementById('hours').textContent = '00';
-                document.getElementById('minutes').textContent = '00';
-                document.getElementById('seconds').textContent = '00';
+                ['days','hours','minutes','seconds'].forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.textContent = '00';
+                });
+                if (countdownInterval) clearInterval(countdownInterval);
                 return;
             }
             
@@ -93,14 +475,351 @@
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((diff % (1000 * 60)) / 1000);
             
-            document.getElementById('days').textContent = String(days).padStart(2, '0');
-            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+            const els = {
+                days: document.getElementById('days'),
+                hours: document.getElementById('hours'),
+                minutes: document.getElementById('minutes'),
+                seconds: document.getElementById('seconds')
+            };
+            
+            if (els.days) els.days.textContent = String(days).padStart(2, '0');
+            if (els.hours) els.hours.textContent = String(hours).padStart(2, '0');
+            if (els.minutes) els.minutes.textContent = String(minutes).padStart(2, '0');
+            if (els.seconds) {
+                const oldVal = els.seconds.textContent;
+                const newVal = String(seconds).padStart(2, '0');
+                if (oldVal !== newVal) {
+                    els.seconds.textContent = newVal;
+                    els.seconds.parentElement.classList.add('countdown-pulse');
+                    setTimeout(() => els.seconds.parentElement.classList.remove('countdown-pulse'), 300);
+                }
+            }
         }
         
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
+        // ============================================================
+        // PROGRESS BAR ANIMATION
+        // ============================================================
+        function animateProgress() {
+            const fill = document.querySelector('.cs-progress-fill');
+            if (!fill) return;
+            const target = parseInt(fill.dataset.target) || 70;
+            setTimeout(() => {
+                fill.style.width = target + '%';
+            }, 800);
+        }
+        
+        // ============================================================
+        // WHATSAPP NOTIFY FORM
+        // ============================================================
+        const SUPABASE_URL = 'https://lojpykmjzhgvyxiwvert.supabase.co';
+        const SUPABASE_ANON_KEY = 'sb_publishable_ylBmAKXCYaWwDDfXpCLLEA_r0vxLMMA';
+
+
+        function initNotifyForm() {
+            const form = document.getElementById('notify-form');
+            if (!form) return;
+
+
+            // Double-check if supabase library exists right now
+            if (!window.supabase) {
+                console.error("Supabase SDK script is missing or hasn't loaded yet.");
+                return;
+            }
+
+          const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+            
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const input = document.getElementById('phone-input');
+                const country = document.getElementById('country-code');
+                const btn = document.getElementById('notify-submit');
+                const success = document.getElementById('notify-success');
+                
+                const phone = input.value.replace(/\s/g, '');
+                const code = country.value;
+                const fullNumber = code + phone;
+                
+                if (!phone || phone.length < 7) {
+                    showToast('Please enter a valid phone number', 'error');
+                    input.focus();
+                    return;
+                }
+                
+                // UI Feedback: Loading state
+                btn.disabled = true;
+                const originalBtnContent = btn.innerHTML;
+                btn.innerHTML = '<span class="cs-spinner"></span> Processing...';
+                
+                try {
+                    // Send to Supabase
+                    const { error } = await supabase
+                        .from('leads')
+                        .insert([{ phone: fullNumber }]);
+
+                    if (error) {
+                        // Handle duplicate numbers cleanly
+                        if (error.code === '23505') {
+                            showToast("You're already on the list! 😎", 'success');
+                        } else {
+                            throw error;
+                        }
+                    } else {
+                        showToast("You're on the list! We'll message you on WhatsApp.", 'success');
+                    }
+
+                    // Show success state
+                    form.style.display = 'none';
+                    success.hidden = false;
+                    success.classList.add('cs-notify-success-visible');
+                    
+                    // Optional: still keep local copy for redundancy
+                    try {
+                        localStorage.setItem('huna-whatsapp-notify-status', 'registered');
+                    } catch(e) {}
+                    
+                    // Re-init icons
+                    if (window.lucide) lucide.createIcons();
+
+                } catch (err) {
+                    console.error('[Supabase Error]:', err);
+                    showToast('Something went wrong. Please try again later.', 'error');
+                    
+                    // Reset button on failure
+                    btn.disabled = false;
+                    btn.innerHTML = originalBtnContent;
+                }
+            });
+        }
+        
+        // ============================================================
+        // SHARE
+        // ============================================================
+        function initShare() {
+            const shareData = {
+                title: 'HUNA - Coming Soon',
+                text: 'Check out HUNA - a new developer community launching soon!',
+                url: window.location.origin
+            };
+            
+            const nativeBtn = document.getElementById('share-native');
+            const copyBtn = document.getElementById('share-copy');
+            const mobileShare = document.getElementById('mobile-share');
+            
+            // Native share (mobile)
+            if (navigator.share) {
+                if (nativeBtn) {
+                    nativeBtn.hidden = false;
+                    nativeBtn.addEventListener('click', async () => {
+                        try {
+                            await navigator.share(shareData);
+                        } catch(err) {}
+                    });
+                }
+                if (mobileShare) {
+                    mobileShare.addEventListener('click', async () => {
+                        try {
+                            await navigator.share(shareData);
+                        } catch(err) {}
+                    });
+                }
+            } else if (mobileShare) {
+                mobileShare.addEventListener('click', () => copyToClipboard());
+            }
+            
+            // Copy link
+            if (copyBtn) {
+                copyBtn.addEventListener('click', copyToClipboard);
+            }
+        }
+        
+        async function copyToClipboard() {
+            try {
+                await navigator.clipboard.writeText(window.location.origin);
+                showToast('Link copied to clipboard!', 'success');
+            } catch(err) {
+                // Fallback
+                const ta = document.createElement('textarea');
+                ta.value = window.location.origin;
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+                showToast('Link copied to clipboard!', 'success');
+            }
+        }
+        
+        // ============================================================
+        // TOAST
+        // ============================================================
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toast-container');
+            if (!container) return;
+            
+            const toast = document.createElement('div');
+            toast.className = `toast toast-${type}`;
+            toast.innerHTML = `
+                <i data-lucide="${type === 'success' ? 'check-circle' : type === 'error' ? 'alert-circle' : 'info'}"></i>
+                <span>${message}</span>
+            `;
+            container.appendChild(toast);
+            if (window.lucide) lucide.createIcons();
+            
+            requestAnimationFrame(() => toast.classList.add('toast-visible'));
+            setTimeout(() => {
+                toast.classList.remove('toast-visible');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+        
+        // ============================================================
+        // PARTICLES CANVAS
+        // ============================================================
+        function initParticles() {
+            const canvas = document.getElementById('particles-canvas');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            let animationId;
+            let isActive = true;
+            
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            resize();
+            window.addEventListener('resize', resize);
+            
+            const colors = ['rgba(106, 89, 196, 0.4)', 'rgba(0, 187, 176, 0.3)', 'rgba(249, 154, 0, 0.25)'];
+            const particleCount = window.matchMedia('(pointer: coarse)').matches ? 25 : 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 0.3,
+                    vy: (Math.random() - 0.5) * 0.3,
+                    radius: Math.random() * 2 + 1,
+                    color: colors[Math.floor(Math.random() * colors.length)]
+                });
+            }
+            
+            function draw() {
+                if (!isActive) return;
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                particles.forEach((p, i) => {
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    
+                    if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                    if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+                    
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+                    ctx.fill();
+                    
+                    // Connections
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[j].x - p.x;
+                        const dy = particles[j].y - p.y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 120) {
+                            ctx.beginPath();
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = `rgba(106, 89, 196, ${0.1 * (1 - dist / 120)})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.stroke();
+                        }
+                    }
+                });
+                
+                animationId = requestAnimationFrame(draw);
+            }
+            
+            // Pause when not visible
+            const observer = new IntersectionObserver((entries) => {
+                isActive = entries[0].isIntersecting;
+                if (isActive && !animationId) draw();
+            });
+            observer.observe(canvas);
+            
+            draw();
+            
+            // Cleanup on page hide
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    isActive = false;
+                    cancelAnimationFrame(animationId);
+                    animationId = null;
+                } else {
+                    isActive = true;
+                    draw();
+                }
+            });
+        }
+        
+        // ============================================================
+        // ANIMATIONS
+        // ============================================================
+        function initAnimations() {
+            animateProgress();
+            
+            // Stagger entrance
+            const elements = document.querySelectorAll('.coming-soon-content > *');
+            elements.forEach((el, i) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, 100 + i * 100);
+            });
+        }
+        
+        // ============================================================
+        // REDUCED MOTION
+        // ============================================================
+        function respectReducedMotion() {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.documentElement.classList.add('reduce-motion');
+            }
+        }
+        
+        // ============================================================
+        // INIT
+        // ============================================================
+        async function init() {
+            respectReducedMotion();
+            initTheme();
+            await initLanguage();
+            
+            // Event listeners
+            document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme);
+            document.getElementById('lang-toggle')?.addEventListener('click', toggleLanguage);
+            
+            initNotifyForm();
+            initShare();
+            initParticles();
+            
+            // Countdown
+            updateCountdown();
+            countdownInterval = setInterval(updateCountdown, 1000);
+            
+            // Icons
+            if (window.lucide) lucide.createIcons();
+            
+            // Hide preloader
+            window.addEventListener('load', hidePreloader);
+            // Fallback if load already fired
+            if (document.readyState === 'complete') hidePreloader();
+        }
+        
+        init();
     </script>
 </body>
 </html>

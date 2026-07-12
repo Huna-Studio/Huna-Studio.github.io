@@ -38,7 +38,7 @@ class HunaNavbar extends HTMLElement {
           { label_en: 'Contact', label_ar: 'تواصل', href: '/pages/contact.html', icon: 'mail' }
         ],
         cta: { label_en: 'Join HUNA', label_ar: 'انضم إلى هُنا', href: '/pages/volunteer.html', icon: 'user-plus' },
-        langToggle: { label_en: 'العربية', label_ar: 'English' },
+        langToggle: { label_en: 'English', label_ar: 'العربية' },
         themeToggle: { label_en: 'Theme', label_ar: 'المظهر' }
       };
     }
