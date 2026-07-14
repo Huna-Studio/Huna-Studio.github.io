@@ -112,5 +112,15 @@
   "comingSoon.milestonePlan": "الخطة",
   "comingSoon.milestoneExecution": "التنفيذ",
   "comingSoon.milestoneContent": "المحتوى",
-  "comingSoon.milestoneLaunch": "الإطلاق"
+  "comingSoon.milestoneLaunch": "الإطلاق",
+  "volunteer_title": "انضم إلى هُنا",
+  "volunteer_desc": "انضم إلى مجتمعنا المتنامي من المطورين والمصممين والمبدعين.",
+  "why_volunteer_label": "ليه المشاركة ؟",
+  "why_volunteer_title": "ليه تتطوع مع هُنا ؟",
+  "why_volunteer_desc": "التطوع مع هُنا يمنحك الفرصة لتعلم مهارات جديدة، بناء مشاريع حقيقية، والتواصل مع مجتمع من المطورين والمصممين والمبدعين.",
+  "roles_label": "الفرص",
+  "roles_title": "أدوار التطوع",
+  "form_label": "قدم طلبك",
+  "form_title": "هل أنت مستعد للانضمام إلى هُنا ؟",
+  "form_desc": "املأ النموذج أدناه وسنتواصل معك قريباً."
 }
