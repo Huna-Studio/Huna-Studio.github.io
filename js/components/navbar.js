@@ -10,15 +10,17 @@ class HunaNavbar extends HTMLElement {
   constructor() {
     super();
     this.navData = null;
+    this._eventsAttached = false;
   }
 
   async connectedCallback() {
     await this.loadData();
     this.render();
-    this.attachEvents();
     
     // Re-render on language change
-    window.addEventListener('langchange', () => this.render());
+    window.addEventListener('langchange', () => {
+      this.render();
+    });
   }
 
   async loadData() {
@@ -30,7 +32,7 @@ class HunaNavbar extends HTMLElement {
       this.navData = {
         logo: { src: 'assets/images/Huna-logo-(no-bg).png', alt: 'HUNA' },
         links: [
-          { label_en: 'Home', label_ar: 'الرئيسية', href: '/index.html', icon: 'home' },
+          { label_en: 'Home', label_ar: 'الرئيسية', href: '/', icon: 'home' },
           { label_en: 'About', label_ar: 'عن هُنا', href: '/pages/about.html', icon: 'info' },
           { label_en: 'Courses', label_ar: 'الدورات', href: '/pages/courses.html', icon: 'book-open' },
           { label_en: 'Projects', label_ar: 'المشاريع', href: '/pages/projects.html', icon: 'folder-git-2' },
@@ -38,7 +40,7 @@ class HunaNavbar extends HTMLElement {
           { label_en: 'Contact', label_ar: 'تواصل', href: '/pages/contact.html', icon: 'mail' }
         ],
         cta: { label_en: 'Join HUNA', label_ar: 'انضم إلى هُنا', href: '/pages/volunteer.html', icon: 'user-plus' },
-        langToggle: { label_en: 'English', label_ar: 'العربية' },
+        langToggle: { label_en: 'EN', label_ar: 'AR' },
         themeToggle: { label_en: 'Theme', label_ar: 'المظهر' }
       };
     }
@@ -54,7 +56,7 @@ class HunaNavbar extends HTMLElement {
     this.innerHTML = `
       <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="container">
-          <a href="/index.html" class="navbar-logo" aria-label="HUNA Home">
+          <a href="/" class="navbar-logo" aria-label="HUNA Home">
             <img src="${data.logo.src}" alt="${data.logo.alt}" width="40" height="40" loading="eager">
             <span class="navbar-logo-text">HUNA</span>
           </a>
@@ -110,9 +112,15 @@ class HunaNavbar extends HTMLElement {
     
     // Update theme toggle icon state
     this.updateThemeIcon();
+
+    // Re-attach events after DOM rebuild
+    this.attachEvents();
   }
 
   attachEvents() {
+    if (this._eventsAttached) return;  
+    this._eventsAttached = true;       
+
     // Theme toggle
     this.addEventListener('click', (e) => {
       const themeBtn = e.target.closest('.theme-toggle');

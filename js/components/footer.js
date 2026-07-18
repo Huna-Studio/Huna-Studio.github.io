@@ -64,7 +64,7 @@ const copyright = lang === 'ar'
         <div class="container">
           <div class="footer-grid">
             <div class="footer-brand">
-              <a href="/index.html" class="logo">
+              <a href="/" class="logo">
                 <img src="/assets/images/Huna-logo-(no-bg).png" alt="HUNA Logo" width="48" height="48" loading="lazy">
                 <span class="logo-text">HUNA</span>
               </a>

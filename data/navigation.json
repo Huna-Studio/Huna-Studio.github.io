@@ -6,7 +6,7 @@
     "height": 40
   },
   "links": [
-    { "label_en": "Home", "label_ar": "الرئيسية", "href": "/index.html", "icon": "home" },
+    { "label_en": "Home", "label_ar": "الرئيسية", "href": "/", "icon": "home" },
     { "label_en": "About", "label_ar": "عن هُنا", "href": "/pages/about.html", "icon": "info" },
     { "label_en": "Courses", "label_ar": "الدورات", "href": "/pages/courses.html", "icon": "book-open" },
     { "label_en": "Projects", "label_ar": "المشاريع", "href": "/pages/projects.html", "icon": "folder-git-2" },
@@ -20,8 +20,8 @@
     "icon": "user-plus"
   },
   "langToggle": {
-    "label_en": "English",
-    "label_ar": "العربية"
+    "label_en": "EN",
+    "label_ar": "AR"
   },
   "themeToggle": {
     "label_en": "Theme",

@@ -1,0 +1,1063 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Enroll in HUNA courses — Join our community."
+    />
+    <meta name="theme-color" content="#0D132B" />
+    <meta name="color-scheme" content="dark light" />
+
+    <meta property="og:title" content="Enroll — HUNA" />
+    <meta
+      property="og:description"
+      content="Join HUNA and start learning today."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="../assets/images/Huna-logo-(no-bg).png"
+    />
+
+    <title data-i18n-title="enroll">Enroll — HUNA</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="../assets/icons/favicon-32x32.png"
+    />
+    <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="../manifest.json" />
+
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/sections/enroll.css" />
+
+    <script
+      src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"
+      defer
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  </head>
+  <body data-page="enroll">
+    <div id="loading-screen" class="loading-screen" aria-hidden="true">
+      <div class="loading-logo">
+        <svg
+          viewBox="0 0 1002 1003"
+          class="loading-logo-svg"
+          aria-hidden="true"
+        >
+          <circle cx="521.5" cy="183.5" r="74.5" fill="#D9D9D9" />
+          <path
+            d="M204.644 183.892V306.629C207.091 467.836 200.362 809.178 207.091 856.196C214.162 905.611 255.824 896.091 273.767 885.507C282.739 875.94 306.31 852.044 328.821 832.992C351.332 813.941 357.368 788.009 357.572 777.425V607.67C357.572 566.147 389.381 552.51 405.285 550.881C423.84 550.474 470.371 547.95 508.052 541.111C545.734 534.272 563.718 499.995 568 483.712V440.357C568 435.472 566.165 420.328 558.824 398.834C551.484 377.34 525.18 368.71 512.946 367.082C495.614 367.692 450.429 372.577 408.344 387.232C366.258 401.887 356.96 370.542 357.572 353.037V229.079C356.552 211.167 339.832 168.26 281.108 139.927C222.384 111.594 205.664 157.432 204.644 183.892Z"
+            fill="url(#loadGrad1)"
+          />
+          <path
+            d="M631.214 633.733C653.771 648.897 659.818 635.568 660.023 627.007H797.324C797.324 689.376 801.002 828.176 791.195 858.137C781.388 888.098 734.19 899.976 716.415 891.155C698.639 882.335 557.046 784.762 528.237 767.642C499.429 750.521 485.5 752.5 477 722C468.5 691.5 471.233 679.593 479.814 633.733C488.395 587.874 541 582 558.5 590.5C576 599 608.657 618.569 631.214 633.733Z"
+            fill="url(#loadGrad2)"
+          />
+          <path
+            d="M798 849.515V232.059C786.718 194.89 756.102 203.938 742.204 213.108C731.985 221.666 706.764 242.574 687.634 257.736C668.504 272.897 661.269 298.696 660.043 309.7C657.795 460.905 655.506 768.329 664.335 788.381C673.164 808.433 707.255 852.167 750.175 870.3C779.115 882.527 794.117 861.538 798 849.515Z"
+            fill="url(#loadGrad3)"
+          />
+          <defs>
+            <linearGradient
+              id="loadGrad1"
+              x1="372.253"
+              y1="144.202"
+              x2="161.29"
+              y2="874.714"
+            >
+              <stop offset="0.1" stop-color="#6A59C4" />
+              <stop offset="0.85" stop-color="#4B29A3" />
+            </linearGradient>
+            <linearGradient
+              id="loadGrad2"
+              x1="492.55"
+              y1="605.732"
+              x2="770.124"
+              y2="894.407"
+            >
+              <stop stop-color="#F99A00" />
+              <stop offset="1" stop-color="#EC730C" />
+            </linearGradient>
+            <linearGradient id="loadGrad3" x1="728" y1="205" x2="728" y2="874">
+              <stop stop-color="#00BBB0" />
+              <stop offset="1" stop-color="#274C56" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div class="loading-bar">
+        <div class="loading-bar-fill"></div>
+      </div>
+      <p class="loading-text" data-i18n="loading">Loading HUNA...</p>
+    </div>
+
+    <huna-navbar></huna-navbar>
+
+    <main id="main-content">
+      <!-- Already Enrolled State -->
+      <section class="section enroll-status" id="enroll-status" hidden>
+        <div class="container">
+          <div class="status-card">
+            <div class="status-header">
+              <div class="status-icon" id="status-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <h2
+                class="status-title"
+                id="status-title"
+                data-i18n="already_enrolled"
+              >
+                Already Enrolled
+              </h2>
+              <p
+                class="status-desc"
+                id="status-desc"
+                data-i18n="enrollment_status_desc"
+              >
+                Check your enrollment status below.
+              </p>
+            </div>
+
+            <div class="status-details">
+              <div class="status-item">
+                <span class="status-label" data-i18n="course">Course</span>
+                <span class="status-value" id="status-course">-</span>
+              </div>
+              <div class="status-item">
+                <span class="status-label" data-i18n="referral_code"
+                  >Referral Code</span
+                >
+                <span class="status-value" id="status-referral-code">-</span>
+              </div>
+              <!-- <div class="status-item" id="status-referral-row">
+                <span class="status-label" data-i18n="referrals_count"
+                  >Referrals</span
+                >
+                <span class="status-value"
+                  ><span id="status-referral-count">0</span> / 3</span
+                >
+              </div> -->
+              <!-- <div class="status-item">
+                <span class="status-label" data-i18n="activation_status"
+                  >Status</span
+                >
+                <span class="status-badge" id="status-badge" data-i18n="pending"
+                  >Pending</span
+                >
+              </div> -->
+            </div>
+
+            <!-- Referral Progress (hidden for free courses) -->
+            <!-- <div
+              class="referral-progress-section"
+              id="status-referral-progress"
+            >
+              <div class="referral-progress-header">
+                <span data-i18n="referral_progress">Referral Progress</span>
+                <span id="referral-progress-text">0 / 3</span>
+              </div>
+              <div class="referral-progress-bar">
+                <div
+                  class="referral-progress-fill"
+                  id="referral-progress-fill"
+                  style="width: 0%"
+                ></div>
+              </div>
+              <p
+                class="referral-progress-desc"
+                data-i18n="referral_progress_desc"
+              >
+                Invite 3 friends to activate your enrollment. Share your code
+                below!
+              </p>
+            </div> -->
+
+            <!-- Join Group Button (for free courses) -->
+            <div class="status-group-action" id="status-join-group-wrap" hidden>
+              <a
+                href="#"
+                class="btn btn-primary btn-large btn-block"
+                id="status-join-group"
+                target="_blank"
+                rel="noopener"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+                  ></path>
+                </svg>
+                <span data-i18n="join_group">Join Course Group</span>
+              </a>
+            </div>
+
+            <!-- Share Referral -->
+            <div class="status-share">
+              <p class="share-label" data-i18n="share_your_code">
+                Share your referral code
+              </p>
+              <div class="share-buttons">
+                <button
+                  type="button"
+                  class="share-btn whatsapp"
+                  id="status-share-whatsapp"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                    />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  class="share-btn facebook"
+                  id="status-share-facebook"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                    />
+                  </svg>
+                  
+                </button>
+                <button
+                  type="button"
+                  class="share-btn copy"
+                  id="status-share-copy"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect
+                      x="9"
+                      y="9"
+                      width="13"
+                      height="13"
+                      rx="2"
+                      ry="2"
+                    ></rect>
+                    <path
+                      d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                    ></path>
+                  </svg>
+                  <!-- <span data-i18n="copy">Copy</span> -->
+                </button>
+              </div>
+            </div>
+
+            <div class="status-actions">
+              <button
+                type="button"
+                class="btn btn-outline"
+                id="new-enrollment-btn"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                <span data-i18n="enroll_another">Enroll in Another Course</span>
+              </button>
+              <a href="./courses" class="btn btn-ghost">
+                <span data-i18n="browse_courses">Browse Courses</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Enrollment Form -->
+      <section class="section enroll-section" id="enroll-section">
+        <div class="container">
+          <!-- Steps Indicator -->
+          <div class="enroll-steps">
+            <div class="step active" data-step="1">
+              <div class="step-number">1</div>
+              <span class="step-label" data-i18n="step_info">Info</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step" data-step="2">
+              <div class="step-number">2</div>
+              <span class="step-label" data-i18n="step_verify">Verify</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step" data-step="3">
+              <div class="step-number">3</div>
+              <span class="step-label" data-i18n="step_refer">Refer</span>
+            </div>
+          </div>
+
+          <div class="enroll-grid">
+            <!-- Left: About HUNA + Course -->
+            <div class="enroll-left">
+              <div class="enroll-brand">
+                <img
+                  src="../assets/images/Huna-logo-(no-bg).png"
+                  alt="HUNA"
+                  class="enroll-logo"
+                />
+                <h1 class="enroll-title" data-i18n="enroll_title">
+                  Join <span class="text-gradient">HUNA</span>
+                </h1>
+                <p class="enroll-desc" data-i18n="enroll_desc">
+                  HUNA is a community-driven tech education platform. We believe
+                  in learning by building, together. Join thousands of learners
+                  who started their journey with us.
+                </p>
+                <a
+                  href="https://youtube.com/@wearehuna"
+                  target="_blank"
+                  rel="noopener"
+                  class="btn btn-outline"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                    />
+                  </svg>
+                  <span data-i18n="watch_youtube">Watch us on YouTube</span>
+                </a>
+              </div>
+
+              <div class="enroll-course-card" id="enroll-course-card">
+                <div class="enroll-course-image">
+                  <img id="enroll-course-img" src="" alt="" />
+                </div>
+                <div class="enroll-course-info">
+                  <div class="enroll-course-badges">
+                    <span class="badge" id="enroll-course-level">Beginner</span>
+                    <!-- <span class="badge" id="enroll-course-meta-badge"
+                      >Referral Required</span
+                    > -->
+                  </div>
+                  <h2 id="enroll-course-title">Course Title</h2>
+                  <p id="enroll-course-desc">Description</p>
+                  <div class="enroll-course-meta">
+                    <span id="enroll-course-duration">4 weeks</span>
+                    <span id="enroll-course-instructor">HUNA Team</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- How It Works -->
+              <div class="enroll-info-card">
+                <h3 data-i18n="how_it_works">How It Works</h3>
+                <ul class="enroll-info-list">
+                  <li>
+                    <span class="info-number">1</span>
+                    <span data-i18n="how_step_1"
+                      >Fill your info & verify social follows</span
+                    >
+                  </li>
+                  <li>
+                    <span class="info-number">2</span>
+                    <span data-i18n="how_step_2"
+                      >Get your unique referral code</span
+                    >
+                  </li>
+                  <li>
+                    <span class="info-number">3</span>
+                    <span data-i18n="how_step_3"
+                      >Invite 3 friends using your code</span
+                    >
+                  </li>
+                  <li>
+                    <span class="info-number">4</span>
+                    <span data-i18n="how_step_4"
+                      >Get activated & start learning!</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Right: Form -->
+            <div class="enroll-right">
+              <form class="enroll-form" id="enroll-form" novalidate>
+                <h2 class="form-title" data-i18n="enroll_form_title">
+                  Enroll Now
+                </h2>
+
+                <div class="form-group">
+                  <label for="enroll-name" data-i18n="full_name"
+                    >Full Name *</label
+                  >
+                  <input
+                    type="text"
+                    id="enroll-name"
+                    name="name"
+                    required
+                    placeholder="Your full name"
+                    data-i18n-placeholder="placeholder_name"
+                  />
+                  <span class="form-error" id="error-name"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="enroll-email" data-i18n="email"
+                    >Email Address *</label
+                  >
+                  <input
+                    type="email"
+                    id="enroll-email"
+                    name="email"
+                    required
+                    placeholder="your@email.com"
+                    data-i18n-placeholder="placeholder_email"
+                  />
+                  <span class="form-error" id="error-email"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="enroll-phone" data-i18n="phone"
+                    >Phone Number *</label
+                  >
+                  <div class="phone-input-wrapper">
+                    <select
+                      class="country-select"
+                      id="country-code"
+                      aria-label="Country code"
+                    >
+                      <option value="+20" selected>🇪🇬 +20</option>
+                      <option value="+966">🇸🇦 +966</option>
+                      <option value="+971">🇦🇪 +971</option>
+                      <option value="+974">🇶🇦 +974</option>
+                      <option value="+965">🇰🇼 +965</option>
+                      <option value="+973">🇧🇭 +973</option>
+                      <option value="+968">🇴🇲 +968</option>
+                      <option value="+962">🇯🇴 +962</option>
+                      <option value="+961">🇱🇧 +961</option>
+                      <option value="+963">🇸🇾 +963</option>
+                      <option value="+964">🇮🇶 +964</option>
+                      <option value="+970">🇵🇸 +970</option>
+                      <option value="+216">🇹🇳 +216</option>
+                      <option value="+213">🇩🇿 +213</option>
+                      <option value="+212">🇲🇦 +212</option>
+                      <option value="+218">🇱🇾 +218</option>
+                      <option value="+249">🇸🇩 +249</option>
+                      <option value="+252">🇸🇴 +252</option>
+                      <option value="+253">🇩🇯 +253</option>
+                      <option value="+1">🇺🇸 +1</option>
+                      <option value="+44">🇬🇧 +44</option>
+                      <option value="+49">🇩🇪 +49</option>
+                      <option value="+33">🇫🇷 +33</option>
+                      <option value="+91">🇮🇳 +91</option>
+                      <option value="+92">🇵🇰 +92</option>
+                      <option value="+90">🇹🇷 +90</option>
+                    </select>
+                    <input
+                      type="tel"
+                      id="enroll-phone"
+                      name="phone"
+                      required
+                      placeholder="1XX XXX XXXX"
+                      data-i18n-placeholder="placeholder_phone"
+                      inputmode="tel"
+                      autocomplete="tel"
+                    />
+                  </div>
+                  <span class="form-error" id="error-phone"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="enroll-location" data-i18n="city_country"
+                    >City / Country *</label
+                  >
+                  <input
+                    type="text"
+                    id="enroll-location"
+                    name="location"
+                    required
+                    placeholder="Cairo, Egypt"
+                    data-i18n-placeholder="placeholder_location"
+                  />
+                  <span class="form-error" id="error-location"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="enroll-education" data-i18n="education"
+                    >University / Faculty / Education *</label
+                  >
+                  <input
+                    type="text"
+                    id="enroll-education"
+                    name="education"
+                    required
+                    placeholder="Faculty of Engineering, Cairo University"
+                    data-i18n-placeholder="placeholder_education"
+                  />
+                  <span class="form-error" id="error-education"></span>
+                </div>
+
+                <!-- Referral Code -->
+                <div class="form-group" id="enroll-referral-group">
+                  <label
+                    for="enroll-referral"
+                    id="enroll-referral-label"
+                    data-i18n="referral_code"
+                    >Referral Code (Optional)</label
+                  >
+                  <input
+                    type="text"
+                    id="enroll-referral"
+                    name="referral"
+                    placeholder="Enter a friend's code"
+                    data-i18n-placeholder="placeholder_referral"
+                  />
+                  <span
+                    class="form-hint"
+                    id="enroll-referral-hint"
+                    data-i18n="referral_hint"
+                    >Have a friend's code? Enter it here!</span
+                  >
+                  <span class="form-error" id="error-referral"></span>
+                </div>
+
+                <!-- Social Verification -->
+                <div class="form-verification">
+                  <h3 class="verification-title" data-i18n="verify_follows">
+                    Verify Your Follows
+                  </h3>
+                  <p class="verification-desc" data-i18n="verify_desc">
+                    Click each button to follow us. Come back and we'll verify
+                    automatically.
+                  </p>
+
+                  <div class="verify-item">
+                    <div class="verify-info">
+                      <div class="verify-icon youtube">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="22"
+                          height="22"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                          />
+                        </svg>
+                      </div>
+                      <div>
+                        <strong>YouTube</strong>
+                        <span>@wearehuna</span>
+                      </div>
+                    </div>
+                    <div class="verify-status" id="verify-yt-status">
+                      <button
+                        type="button"
+                        class="verify-btn youtube"
+                        id="verify-yt-btn"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="14"
+                          height="14"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path
+                            d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                          ></path>
+                          <polyline points="15 3 21 3 21 9"></polyline>
+                          <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                        <span data-i18n="subscribe">Subscribe</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="verify-item">
+                    <div class="verify-info">
+                      <div class="verify-icon facebook">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="22"
+                          height="22"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                          />
+                        </svg>
+                      </div>
+                      <div>
+                        <strong>Facebook</strong>
+                        <span>huna.community</span>
+                      </div>
+                    </div>
+                    <div class="verify-status" id="verify-fb-status">
+                      <button
+                        type="button"
+                        class="verify-btn facebook"
+                        id="verify-fb-btn"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="14"
+                          height="14"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path
+                            d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                          ></path>
+                          <polyline points="15 3 21 3 21 9"></polyline>
+                          <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                        <span data-i18n="follow">Follow</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-large btn-block"
+                  id="enroll-submit"
+                >
+                  <span data-i18n="complete_enrollment"
+                    >Complete Enrollment</span
+                  >
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Success State -->
+      <section class="section enroll-success" id="enroll-success" hidden>
+        <div class="container">
+          <div class="success-card">
+            <div class="success-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="64"
+                height="64"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <h2 class="success-title" data-i18n="enroll_success">You're In!</h2>
+            <p class="success-desc" data-i18n="enroll_success_desc">
+              Your enrollment is registered. To activate your subscription and
+              join the course group, refer <strong>3 friends</strong> using your
+              unique code below.
+            </p>
+
+            <!-- Referral Course Success -->
+            <div
+              class="success-referral-progress"
+              id="success-referral-progress"
+            >
+              <div class="referral-code-box">
+                <span class="referral-label" data-i18n="your_referral_code"
+                  >Your Referral Code</span
+                >
+                <div class="referral-code" id="user-referral-code">
+                  HUNA-XXXX
+                </div>
+                <button
+                  type="button"
+                  class="btn btn-ghost btn-small"
+                  id="copy-referral"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect
+                      x="9"
+                      y="9"
+                      width="13"
+                      height="13"
+                      rx="2"
+                      ry="2"
+                    ></rect>
+                    <path
+                      d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                    ></path>
+                  </svg>
+                  <span data-i18n="copy">Copy</span>
+                </button>
+              </div>
+
+              <!-- <div class="referral-progress-header">
+                <span data-i18n="referral_progress">Referral Progress</span>
+                <span id="success-referral-count">0 / 3</span>
+              </div>
+              <div class="referral-progress-bar">
+                <div
+                  class="referral-progress-fill"
+                  id="success-referral-fill"
+                  style="width: 0%"
+                ></div>
+              </div> -->
+              <p
+                class="referral-progress-desc"
+                data-i18n="success_referral_desc"
+              >
+                Share your code with friends. Once 3 people enroll using your
+                code, you'll be activated!
+              </p>
+
+              <div class="success-share">
+                <p class="share-label" data-i18n="share_referral">
+                  Share your referral code
+                </p>
+                <div class="share-buttons">
+                  <button
+                    type="button"
+                    class="share-btn facebook"
+                    id="share-facebook"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                      />
+                    </svg>
+                    Facebook
+                  </button>
+                  <button
+                    type="button"
+                    class="share-btn whatsapp"
+                    id="share-whatsapp"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                      />
+                    </svg>
+                    WhatsApp
+                  </button>
+                  <button type="button" class="share-btn copy" id="share-copy">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <rect
+                        x="9"
+                        y="9"
+                        width="13"
+                        height="13"
+                        rx="2"
+                        ry="2"
+                      ></rect>
+                      <path
+                        d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                      ></path>
+                    </svg>
+                    <span data-i18n="copy">Copy</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Free Course Success (Join Group) -->
+            <div class="free-success-group" id="free-success-group" hidden>
+              <div class="success-group-box">
+                <div class="success-group-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+                    ></path>
+                  </svg>
+                </div>
+                <h3 data-i18n="join_group_title">Join the Course Group</h3>
+                <p data-i18n="join_group_desc">
+                  Click below to join the WhatsApp group and start learning with
+                  the community!
+                </p>
+                <a
+                  href="#"
+                  class="btn btn-primary btn-large"
+                  id="free-join-group"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+                    ></path>
+                  </svg>
+                  <span data-i18n="join_group">Join Course Group</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Free Course Share Section -->
+            <div class="free-share-section" id="free-share-section" hidden>
+              <div class="free-referral-box">
+                <span class="referral-label" data-i18n="your_referral_code"
+                  >Your Referral Code</span
+                >
+                <div class="referral-code" id="free-user-referral-code">
+                  HUNA-XXXX
+                </div>
+                <button
+                  type="button"
+                  class="btn btn-ghost btn-small"
+                  id="free-copy-referral"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect
+                      x="9"
+                      y="9"
+                      width="13"
+                      height="13"
+                      rx="2"
+                      ry="2"
+                    ></rect>
+                    <path
+                      d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                    ></path>
+                  </svg>
+                  <span data-i18n="copy">Copy</span>
+                </button>
+              </div>
+
+              <p class="share-label" data-i18n="share_course">
+                Share this course with friends
+              </p>
+              <div class="share-buttons">
+                <button
+                  type="button"
+                  class="share-btn facebook"
+                  id="free-share-facebook"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                    />
+                  </svg>
+                  Facebook
+                </button>
+                <button
+                  type="button"
+                  class="share-btn whatsapp"
+                  id="free-share-whatsapp"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                    />
+                  </svg>
+                  WhatsApp
+                </button>
+                <button
+                  type="button"
+                  class="share-btn copy"
+                  id="free-share-copy"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+                    ></path>
+                    <path
+                      d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+                    ></path>
+                  </svg>
+                  <span data-i18n="copy_link">Copy Link</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="success-actions">
+              <a
+                href="./courses"
+                class="btn btn-outline"
+                data-i18n="browse_courses"
+                >Browse More Courses</a
+              >
+              <button
+                type="button"
+                class="btn btn-ghost"
+                id="success-check-status"
+              >
+                <span data-i18n="check_status">Check My Status</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <huna-footer></huna-footer>
+
+    <div
+      class="toast-container"
+      id="toast-container"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
+
+    <script type="module" src="../js/main.js"></script>
+    <script type="module">
+      import { initEnrollPage } from "../js/pages/enroll.js";
+      initEnrollPage();
+    </script>
+  </body>
+</html>

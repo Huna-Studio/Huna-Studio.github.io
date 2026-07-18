@@ -31,6 +31,9 @@
     WHITELIST: [
       'coming-soon.html',
       'volunteer',
+      'courses',
+      'course',
+      'enroll'
       // Add more as needed:
       // 'api/',
       // 'assets/',
@@ -158,7 +161,7 @@
   
   // 3. Get current path info
   const path = window.location.pathname;
-  const page = path.split('/').pop() || 'index.html';
+  const page = path.split('/').pop() || '/';
   
   // 4. Check whitelist
   if (isWhitelisted(path, page)) {

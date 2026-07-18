@@ -1,0 +1,1215 @@
+/* ============================================
+   HUNA Enroll Page — Enhanced v3
+   With step indicators, status dashboard, RTL
+   ============================================ */
+
+.enroll-section {
+  padding-top: 120px;
+  padding-bottom: var(--space-16);
+  background: var(--bg-primary);
+  min-height: 100vh;
+}
+
+/* ─── STEPS INDICATOR ─── */
+.enroll-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-10);
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  position: relative;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 2px solid var(--border-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+}
+
+.step.active .step-number {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: white;
+  box-shadow: 0 0 20px rgba(106, 89, 196, 0.3);
+}
+
+.step.completed .step-number {
+  background: #10B981;
+  border-color: #10B981;
+  color: white;
+}
+
+.step-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.step.active .step-label {
+  color: var(--accent-primary);
+}
+
+.step.completed .step-label {
+  color: #10B981;
+}
+
+.step-line {
+  flex: 1;
+  height: 2px;
+  background: var(--border-primary);
+  max-width: 80px;
+  position: relative;
+  top: -10px;
+}
+
+.step-line.completed {
+  background: #10B981;
+}
+
+/* RTL Steps */
+[dir="rtl"] .step-line {
+  top: -10px;
+}
+
+/* ─── GRID ─── */
+.enroll-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+}
+
+/* ─── LEFT SIDE ─── */
+.enroll-left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+
+.enroll-brand {
+  text-align: center;
+}
+
+.enroll-logo {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin: 0 auto var(--space-4) auto;
+}
+
+.enroll-title {
+  font-size: var(--text-4xl);
+  font-weight: 800;
+  margin-bottom: var(--space-4);
+  line-height: 1.1;
+}
+
+.enroll-desc {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-6);
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.enroll-brand .btn {
+  gap: var(--space-2);
+}
+
+.enroll-brand .btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Course Card */
+.enroll-course-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-base);
+}
+
+.enroll-course-card:hover {
+  border-color: var(--border-secondary);
+  box-shadow: 0 12px 40px rgba(106, 89, 196, 0.1);
+}
+
+.enroll-course-image {
+  overflow: hidden;
+}
+
+.enroll-course-image img {
+  width: 100%;
+  /* height: 180px; */
+  object-fit: cover;
+}
+
+.enroll-course-info {
+  padding: var(--space-5);
+}
+
+.enroll-course-info .badge {
+  margin-bottom: var(--space-3);
+  display: inline-block;
+}
+
+.enroll-course-info h2 {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.enroll-course-info p {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--space-3);
+}
+
+.enroll-course-meta {
+  display: flex;
+  gap: var(--space-4);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+/* How It Works Card */
+.enroll-info-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+
+.enroll-info-card h3 {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+}
+
+.enroll-info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.enroll-info-list li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.info-number {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ─── RIGHT SIDE: FORM ─── */
+.enroll-right {
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+}
+
+.form-title {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-6);
+  text-align: center;
+}
+
+.enroll-form {
+  display: flex;
+  flex-direction: column;
+  /* gap: var(--space-4); */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  /* gap: var(--space-2); */
+  margin: 0;
+}
+
+.form-group label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.form-group input,
+.form-group select {
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg-hover);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: var(--text-base);
+  font-family: inherit;
+  transition: all var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(106, 89, 196, 0.1);
+}
+
+.form-group input::placeholder {
+  color: var(--text-tertiary);
+  opacity: 0.6;
+}
+
+.form-group input.invalid {
+  border-color: #EF4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.form-error {
+  font-size: var(--text-xs);
+  color: #EF4444;
+  min-height: 16px;
+}
+
+.form-hint {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+}
+
+/* Phone Input with Country Select */
+.phone-input-wrapper {
+  display: flex;
+  gap: var(--space-2);
+  align-items: stretch;
+}
+
+.country-select {
+  padding: var(--space-3) var(--space-2);
+  background: var(--bg-hover);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: var(--text-sm);
+  font-family: inherit;
+  cursor: pointer;
+  min-width: 90px;
+  flex-shrink: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  padding-right: 28px;
+}
+
+.country-select:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(106, 89, 196, 0.1);
+}
+
+#enroll-phone {
+  flex: 1;
+}
+
+/* RTL Phone Input */
+[dir="rtl"] .country-select {
+  background-position: left 8px center;
+  padding-right: var(--space-3);
+  padding-left: 28px;
+}
+
+/* Verification Section */
+.form-verification {
+  background: var(--bg-hover);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  margin-top: var(--space-2);
+}
+
+.verification-title {
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.verification-desc {
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-4);
+}
+
+.verify-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.verify-item:last-child {
+  border-bottom: none;
+}
+
+.verify-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.verify-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.verify-icon.youtube {
+  background: #FF0000;
+  color: white;
+}
+
+.verify-icon.facebook {
+  background: #1877F2;
+  color: white;
+}
+
+.verify-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.verify-info strong {
+  display: block;
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+}
+
+.verify-info span {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+.verify-status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.verify-status.pending {
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+}
+
+.verify-status.done {
+  color: #10B981;
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.verify-status.done svg {
+  width: 18px;
+  height: 18px;
+}
+
+.verify-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: none;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.verify-btn.youtube {
+  background: #FF0000;
+  color: white;
+}
+
+.verify-btn.youtube:hover {
+  background: #cc0000;
+}
+
+.verify-btn.facebook {
+  background: #1877F2;
+  color: white;
+}
+
+.verify-btn.facebook:hover {
+  background: #166fe5;
+}
+
+.verify-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.spinner-small {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Submit Button */
+.enroll-form .btn-block {
+  width: 100%;
+  justify-content: center;
+  margin-top: var(--space-3);
+}
+
+.spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-right: var(--space-2);
+}
+
+/* Shake animation for validation */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.shake {
+  animation: shake 0.3s ease;
+}
+
+/* ─── STATUS DASHBOARD ─── */
+.enroll-status {
+  padding-top: 140px;
+  padding-bottom: var(--space-16);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.status-card {
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-10);
+}
+
+.status-header {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.status-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(249, 154, 0, 0.1);
+  border: 2px solid rgba(249, 154, 0, 0.3);
+  border-radius: 50%;
+  color: #F99A00;
+}
+
+.status-icon svg {
+  width: 40px;
+  height: 40px;
+}
+
+.status-title {
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.status-desc {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+}
+
+.status-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+  padding: var(--space-5);
+  background: var(--bg-hover);
+  border-radius: var(--radius-lg);
+}
+
+.status-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.status-item:last-child {
+  border-bottom: none;
+}
+
+.status-label {
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+
+.status-value {
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.status-badge {
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-badge.pending {
+  background: rgba(249, 154, 0, 0.15);
+  color: #F99A00;
+  border: 1px solid rgba(249, 154, 0, 0.2);
+}
+
+.status-badge.active {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10B981;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+/* Referral Progress */
+.referral-progress-section {
+  margin-bottom: var(--space-8);
+}
+
+.referral-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.referral-progress-bar {
+  position: relative;
+  height: 10px;
+  background: var(--bg-hover);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-bottom: var(--space-3);
+  border: 1px solid var(--border-primary);
+}
+
+.referral-progress-fill {
+  height: 100%;
+  background: var(--accent-gradient);
+  border-radius: var(--radius-full);
+  transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+
+.referral-progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3));
+  border-radius: var(--radius-full);
+}
+
+.referral-progress-desc {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  text-align: center;
+  margin: 0;
+}
+
+/* Status Share */
+.status-share {
+  margin-bottom: var(--space-8);
+  text-align: center;
+}
+
+.status-actions {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.status-actions .btn {
+  gap: var(--space-2);
+}
+
+/* ─── SUCCESS STATE ─── */
+.enroll-success {
+  padding-top: 140px;
+  padding-bottom: var(--space-16);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.success-card {
+  max-width: 560px;
+  margin: 0 auto;
+  text-align: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-10);
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(16, 185, 129, 0.1);
+  border: 2px solid rgba(16, 185, 129, 0.3);
+  border-radius: 50%;
+  color: #10B981;
+}
+
+.success-icon svg {
+  width: 40px;
+  height: 40px;
+}
+
+.success-title {
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
+}
+
+.success-desc {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-8);
+}
+
+.success-desc strong {
+  color: var(--text-primary);
+}
+
+/* Referral Code Box */
+.referral-code-box {
+  background: var(--bg-hover);
+  border: 2px dashed var(--accent-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.referral-label {
+  display: block;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-2);
+}
+
+.referral-code {
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--accent-primary);
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-3);
+  word-break: break-all;
+}
+
+.referral-code-box .btn {
+  gap: var(--space-2);
+}
+
+/* Success Referral Progress */
+.success-referral-progress {
+  margin-bottom: var(--space-8);
+  padding: var(--space-5);
+  background: var(--bg-hover);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-primary);
+}
+
+/* Share Section */
+.success-share {
+  margin-bottom: var(--space-8);
+}
+
+.share-label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-3);
+}
+
+.share-buttons {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.share-btn {
+  display: flex;
+  align-items: center;
+  /* gap: var(--space-2);
+  padding: var(--space-3) var(--space-5); */
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: none;
+  font-family: inherit;
+}
+
+.share-btn.facebook {
+  background: #1877F2;
+  color: white;
+}
+
+.share-btn.facebook:hover {
+  background: #166fe5;
+  transform: translateY(-2px);
+}
+
+.share-btn.whatsapp {
+  background: #25D366;
+  color: white;
+}
+
+.share-btn.whatsapp:hover {
+  background: #22bf5b;
+  transform: translateY(-2px);
+}
+
+.share-btn.copy {
+  background: var(--bg-hover);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-primary);
+}
+
+.share-btn.copy:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  transform: translateY(-2px);
+}
+
+.share-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.success-actions {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  .enroll-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+  
+  .enroll-left {
+    position: static;
+    text-align: center;
+  }
+  
+  .enroll-course-card {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .enroll-info-card {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .enroll-right {
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .status-card,
+  .success-card {
+    margin: var(--space-4);
+  }
+}
+
+@media (max-width: 767px) {
+  .enroll-section,
+  .enroll-status,
+  .enroll-success {
+    padding-top: 100px;
+  }
+  
+  .enroll-title {
+    font-size: var(--text-3xl);
+  }
+  
+  .enroll-right {
+    padding: var(--space-5);
+  }
+  
+  .enroll-steps {
+    gap: var(--space-1);
+  }
+  
+  .step-label {
+    font-size: 10px;
+  }
+  
+  .step-line {
+    max-width: 40px;
+  }
+  
+  .verify-item {
+    flex-direction: column;
+    gap: var(--space-3);
+    align-items: flex-start;
+  }
+  
+  .status-card,
+  .success-card {
+    padding: var(--space-6);
+    margin: var(--space-4);
+  }
+  
+  .referral-code {
+    font-size: var(--text-2xl);
+  }
+  
+  .share-buttons,
+  .status-actions,
+  .success-actions {
+    flex-direction: column;
+  }
+  
+  .share-btn,
+  .status-actions .btn,
+  .success-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .phone-input-wrapper {
+    flex-direction: column;
+  }
+  
+  .country-select {
+    width: 100%;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .spinner,
+  .spinner-small {
+    animation: none;
+  }
+  
+  .shake {
+    animation: none;
+  }
+  
+  .referral-progress-fill {
+    transition: none;
+  }
+  
+  .step-number {
+    transition: none;
+  }
+}
+
+/* High Contrast */
+@media (prefers-contrast: high) {
+  .enroll-right,
+  .enroll-course-card,
+  .enroll-info-card,
+  .form-verification,
+  .status-card,
+  .success-card,
+  .referral-code-box,
+  .success-referral-progress {
+    border-width: 2px;
+  }
+}
+
+/* RTL Specific Adjustments */
+[dir="rtl"] .enroll-brand .btn svg,
+[dir="rtl"] .verify-btn svg,
+[dir="rtl"] .status-actions .btn svg {
+  margin-right: 0;
+  margin-left: var(--space-2);
+}
+
+[dir="rtl"] .spinner {
+  margin-right: 0;
+  margin-left: var(--space-2);
+}
+
+[dir="rtl"] .enroll-info-list li {
+  text-align: right;
+}
+
+[dir="rtl"] .status-item {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .referral-progress-fill::after {
+  right: auto;
+  left: 0;
+  transform: scaleX(-1);
+}
+
+/* ============================================
+   MOBILE OVERFLOW FIXES
+   ============================================ */
+
+/* Prevent horizontal scroll on the entire enroll page */
+.enroll-section,
+.enroll-status,
+.enroll-success {
+  overflow-x: hidden;
+}
+
+/* Ensure all inputs and selects respect container width */
+.enroll-form input,
+.enroll-form select,
+.enroll-form textarea {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Phone input wrapper must not overflow */
+.phone-input-wrapper {
+  width: 100%;
+}
+
+.country-select {
+  max-width: 40%;
+}
+
+#enroll-phone {
+  min-width: 0; /* Allow flex item to shrink below default min-content */
+}
+
+/* Verify items must wrap on very small screens */
+@media (max-width: 767px) {
+  .verify-item {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .verify-info {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .verify-info > div:last-child {
+    min-width: 0;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+}
+
+/* Ensure status and success cards don't overflow */
+.status-card,
+.success-card {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Status details must not overflow */
+.status-details {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.status-item {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Referral code must wrap */
+.referral-code {
+  max-width: 100%;
+}
+
+/* Share buttons container */
+.share-buttons {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Enrollment steps must not overflow */
+.enroll-steps {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0 var(--space-2);
+}
+
+/* Course card image must not overflow */
+.enroll-course-image img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Ensure the grid doesn't cause overflow */
+.enroll-grid {
+  min-width: 0; /* Critical: allows grid to shrink below min-content */
+}
+
+.enroll-left,
+.enroll-right {
+  min-width: 0; /* Critical: allows flex/grid items to shrink */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Form groups must not overflow */
+.form-group {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Success and status sections */
+.enroll-success .container,
+.enroll-status .container {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Fix for very small screens (360px and below) */
+@media (max-width: 400px) {
+  .enroll-steps {
+    gap: var(--space-1);
+  }
+
+  .step-number {
+    width: 32px;
+    height: 32px;
+    font-size: var(--text-xs);
+  }
+
+  .step-label {
+    font-size: 9px;
+  }
+
+  .step-line {
+    max-width: 20px;
+  }
+
+  .enroll-right {
+    padding: var(--space-4);
+  }
+
+  .status-card,
+  .success-card {
+    padding: var(--space-4);
+    margin: var(--space-2);
+  }
+
+  .share-btn {
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--text-xs);
+  }
+
+  .verify-btn {
+    padding: var(--space-2) var(--space-3);
+    font-size: 10px;
+  }
+}

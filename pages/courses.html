@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" data-theme="dark">
 <head>
-
   <!-- COMING SOON BLOCK — MUST BE FIRST -->
   <script src="../js/core/coming-soon-redirect.js"></script>
 
@@ -9,6 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="HUNA Courses — Learn web development, design, data science, and more. Join our community-driven courses.">
   <meta name="theme-color" content="#0D132B">
+  <meta name="color-scheme" content="dark light">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Courses — HUNA">
+  <meta property="og:description" content="Learn from the community, for the community. Hands-on courses designed to get you building.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="../assets/images/Huna-logo-(no-bg).png">
+  
   <title data-i18n-title="nav_courses">Courses — HUNA</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +27,7 @@
   <link rel="manifest" href="../manifest.json">
   
   <link rel="stylesheet" href="../css/main.css">
-  <link rel="stylesheet" href="../css/pages/courses.css">
+  <link rel="stylesheet" href="../css/sections/courses.css">
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
@@ -66,7 +73,7 @@
     <section class="section page-header" style="padding-top: 140px;">
       <div class="container">
         <nav class="breadcrumbs" aria-label="Breadcrumb">
-          <a href="../index.html" data-i18n="nav_home">Home</a>
+          <a href="/" data-i18n="nav_home">Home</a>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
           <span data-i18n="nav_courses">Courses</span>
         </nav>
@@ -77,26 +84,86 @@
 
     <section class="section">
       <div class="container">
-        <div class="filter-bar">
+        <!-- Filter Bar -->
+        <div class="filter-bar" id="filter-bar">
           <div class="filter-group" id="category-filters">
             <button class="filter-btn active" data-filter="all" data-i18n="filter_all">All</button>
             <button class="filter-btn" data-filter="Development" data-i18n="filter_dev">Development</button>
             <button class="filter-btn" data-filter="Design" data-i18n="filter_design">Design</button>
-            <button class="filter-btn" data-filter="Data Science" data-i18n="filter_data">Data Science</button>
-            <button class="filter-btn" data-filter="Mobile" data-i18n="filter_mobile">Mobile</button>
-            <button class="filter-btn" data-filter="DevOps" data-i18n="filter_devops">DevOps</button>
+            <button class="filter-btn" data-filter="Languages" data-i18n="filter_languages">Languages</button>
           </div>
+          
+          <div class="filter-actions">
+            <!-- Sort Dropdown -->
+            <div class="sort-wrapper">
+              <select class="sort-select" id="sort-select" aria-label="Sort courses">
+                <option value="newest" data-i18n="sort_newest">Newest</option>
+                <option value="popular" data-i18n="sort_popular">Most Popular</option>
+                <option value="level" data-i18n="sort_level">Level</option>
+                <option value="duration" data-i18n="sort_duration">Duration</option>
+                <option value="alphabetical" data-i18n="sort_alphabetical">A-Z</option>
+              </select>
+              <i data-lucide="chevron-down" class="sort-icon"></i>
+            </div>
+            
+            <!-- View Toggle -->
+            <div class="view-toggle" role="group" aria-label="View mode">
+              <button class="view-btn active" data-view="grid" aria-label="Grid view" title="Grid view">
+                <i data-lucide="layout-grid"></i>
+              </button>
+              <button class="view-btn" data-view="list" aria-label="List view" title="List view">
+                <i data-lucide="list"></i>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Search -->
           <div class="search-box">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            <input type="text" id="course-search" placeholder="Search courses..." data-i18n-placeholder="search_placeholder">
+            <input type="text" id="course-search" placeholder="Search courses..." data-i18n-placeholder="search_placeholder" aria-label="Search courses">
+            <button type="button" class="search-clear" id="search-clear" aria-label="Clear search" hidden>
+              <i data-lucide="x"></i>
+            </button>
           </div>
         </div>
+        
+        <!-- Active Filters -->
+        <div class="active-filters" id="active-filters" hidden>
+          <span class="active-filters-label" data-i18n="active_filters">Active filters:</span>
+          <div class="active-filters-list" id="active-filters-list"></div>
+          <button type="button" class="clear-all-btn" id="clear-all-filters" data-i18n="clear_all">Clear all</button>
+        </div>
+        
+        <!-- Results Count -->
+        <div class="results-count" id="results-count"></div>
 
-        <div class="courses-grid" id="courses-grid">
+        <!-- Skeleton Loading -->
+        <div class="courses-grid skeleton-grid" id="skeleton-grid">
+          <div class="course-skeleton"><div class="skeleton-image"></div><div class="skeleton-content"><div class="skeleton-badge"></div><div class="skeleton-title"></div><div class="skeleton-text"></div><div class="skeleton-text short"></div><div class="skeleton-meta"></div></div></div>
+          <div class="course-skeleton"><div class="skeleton-image"></div><div class="skeleton-content"><div class="skeleton-badge"></div><div class="skeleton-title"></div><div class="skeleton-text"></div><div class="skeleton-text short"></div><div class="skeleton-meta"></div></div></div>
+          <div class="course-skeleton"><div class="skeleton-image"></div><div class="skeleton-content"><div class="skeleton-badge"></div><div class="skeleton-title"></div><div class="skeleton-text"></div><div class="skeleton-text short"></div><div class="skeleton-meta"></div></div></div>
+          <div class="course-skeleton"><div class="skeleton-image"></div><div class="skeleton-content"><div class="skeleton-badge"></div><div class="skeleton-title"></div><div class="skeleton-text"></div><div class="skeleton-text short"></div><div class="skeleton-meta"></div></div></div>
+          <div class="course-skeleton"><div class="skeleton-image"></div><div class="skeleton-content"><div class="skeleton-badge"></div><div class="skeleton-title"></div><div class="skeleton-text"></div><div class="skeleton-text short"></div><div class="skeleton-meta"></div></div></div>
+          <div class="course-skeleton"><div class="skeleton-image"></div><div class="skeleton-content"><div class="skeleton-badge"></div><div class="skeleton-title"></div><div class="skeleton-text"></div><div class="skeleton-text short"></div><div class="skeleton-meta"></div></div></div>
+        </div>
+
+        <!-- Courses Grid -->
+        <div class="courses-grid" id="courses-grid" hidden>
           <!-- Dynamically loaded -->
         </div>
 
-        <div class="pagination" id="courses-pagination">
+        <!-- Empty State -->
+        <div class="empty-state" id="empty-state" hidden>
+          <div class="empty-state-icon">
+            <i data-lucide="search-x"></i>
+          </div>
+          <h3 class="empty-state-title" data-i18n="no_courses_title">No courses found</h3>
+          <p class="empty-state-desc" data-i18n="no_courses_desc">Try adjusting your search or filters to find what you're looking for.</p>
+          <button type="button" class="btn btn-primary" id="reset-filters-btn" data-i18n="reset_filters">Reset Filters</button>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination" id="courses-pagination" hidden>
           <!-- Dynamically loaded -->
         </div>
       </div>
@@ -104,11 +171,29 @@
   </main>
 
   <huna-footer></huna-footer>
+  
+  <!-- Course Detail Modal -->
+  <div class="modal-overlay" id="course-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal course-modal" role="document">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-title"></h3>
+        <button type="button" class="modal-close" id="modal-close" aria-label="Close modal">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="modal-body" id="modal-body">
+        <!-- Dynamically loaded -->
+      </div>
+      <div class="modal-footer" id="modal-footer">
+        <!-- Dynamically loaded -->
+      </div>
+    </div>
+  </div>
+  
   <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
   
   <script type="module" src="../js/main.js"></script>
-
-    <script type="module">
+  <script type="module">
     import { initCoursesPage } from '../js/pages/courses.js';
     initCoursesPage();
   </script>
