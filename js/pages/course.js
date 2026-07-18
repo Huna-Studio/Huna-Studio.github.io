@@ -264,7 +264,7 @@ function renderRelatedCourses() {
     return `
       <article class="card course-card">
         <div class="card-image">
-          <img src="${imageUrl}" alt="${title}" loading="lazy" onerror="this.src='../assets/images/Huna-logo-(no-bg).png';this.style.objectFit='contain';this.style.padding='20px';this.style.background='var(--bg-hover)';">
+          <img src="${imageUrl}" alt="${title}" loading="lazy" onerror="this.src='../assets/images/Huna-logo-(no-bg).webp';this.style.objectFit='contain';this.style.padding='20px';this.style.background='var(--bg-hover)';">
           <span class="card-badge" style="background: ${getLevelColor(course.level)};">${level}</span>
           ${isReferral ? `<span class="card-badge-upcoming" style="background: #F99A00;">${lang === 'ar' ? 'إحالات' : 'Referral'}</span>` : ''}
         </div>
@@ -357,7 +357,7 @@ function getLevelColor(level) {
 }
 
 function getImageUrl(imagePath) {
-  if (!imagePath || imagePath === '#') return '../assets/images/Huna-logo-(no-bg).png';
+  if (!imagePath || imagePath === '#') return '../assets/images/Huna-logo-(no-bg).webp';
   if (imagePath.startsWith('/')) return '..' + imagePath;
   return imagePath;
 }

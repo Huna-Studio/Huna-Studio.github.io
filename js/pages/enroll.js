@@ -729,7 +729,7 @@ function getLevelColor(level) {
 }
 
 function getImageUrl(imagePath) {
-  if (!imagePath || imagePath === '#') return '../assets/images/Huna-logo-(no-bg).png';
+  if (!imagePath || imagePath === '#') return '../assets/images/Huna-logo-(no-bg).webp';
   if (imagePath.startsWith('/')) return '..' + imagePath;
   return imagePath;
 }

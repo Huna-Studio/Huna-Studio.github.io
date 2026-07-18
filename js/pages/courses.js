@@ -243,7 +243,7 @@ function renderCourseCard(course, lang) {
   return `
     <article class="card course-card" data-course-id="${course.id}" tabindex="0" role="button" aria-label="View details for ${title}">
       <div class="card-image">
-        <img src="${imageUrl}" alt="${title}" loading="lazy" onerror="this.src='../assets/images/Huna-logo-(no-bg).png';this.style.objectFit='contain';this.style.padding='20px';this.style.background='var(--bg-hover)';">
+        <img src="${imageUrl}" alt="${title}" loading="lazy" onerror="this.src='../assets/images/Huna-logo-(no-bg).webp';this.style.objectFit='contain';this.style.padding='20px';this.style.background='var(--bg-hover)';">
         <span class="card-badge" style="background: ${levelColor};">${level}</span>
         ${isUpcoming ? `<span class="card-badge-upcoming" data-i18n="status_upcoming">Upcoming</span>` : ''}
         ${(!isUpcoming && isReferral) ? `<span class="card-badge-referral">${lang === 'ar' ? 'إحالات' : 'Referral'}</span>` : ''}
@@ -296,7 +296,7 @@ function getLevelColor(level) {
 }
 
 function getImageUrl(imagePath) {
-  if (!imagePath || imagePath === '#') return '../assets/images/Huna-logo-(no-bg).png';
+  if (!imagePath || imagePath === '#') return '../assets/images/Huna-logo-(no-bg).webp';
   // Handle both absolute and relative paths
   if (imagePath.startsWith('/')) return '..' + imagePath;
   return imagePath;
@@ -760,7 +760,7 @@ function showCourseDetails(courseId) {
   refs.modalTitle.textContent = title;
   
   refs.modalBody.innerHTML = `
-    <img src="${imageUrl}" alt="${title}" loading="lazy" onerror="this.src='../assets/images/Huna-logo-(no-bg).png';this.style.objectFit='contain';this.style.padding='20px';this.style.background='var(--bg-hover)';">
+    <img src="${imageUrl}" alt="${title}" loading="lazy" onerror="this.src='../assets/images/Huna-logo-(no-bg).webp';this.style.objectFit='contain';this.style.padding='20px';this.style.background='var(--bg-hover)';">
     <p>${desc}</p>
     <div class="modal-badges">
       <span class="badge badge-primary">${level}</span>
