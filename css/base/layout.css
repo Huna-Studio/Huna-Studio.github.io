@@ -48,24 +48,32 @@
 
 .section-label {
   display: inline-block;
-  font-size: var(--text-sm);
-  font-weight: var(--font-semibold);
+  font-family: var(--font-label);
+  font-size: 13px;
+  font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--accent-primary);
+  color: var(--text-inverse);
+  background: var(--huna-blue);
+  border: 3px solid var(--border-primary);
+  padding: 6px 16px;
+  border-radius: 9px;
+  box-shadow: var(--shadow-sm);
+  transform: rotate(-1.5deg);
   margin-bottom: var(--space-4);
 }
 
 .section-title {
   font-size: var(--text-4xl);
-  font-weight: var(--font-extrabold);
-  line-height: 1.1;
+  font-weight: 400;
+  line-height: 0.98;
   margin-bottom: var(--space-6);
 }
 
 .section-desc {
   font-size: var(--text-lg);
   color: var(--text-secondary);
+  font-weight: 500;
   line-height: 1.7;
   max-width: 600px;
   margin-left: auto;

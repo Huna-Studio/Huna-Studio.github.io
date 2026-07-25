@@ -35,7 +35,7 @@
   height: 40px;
   border-radius: 50%;
   background: var(--bg-card);
-  border: 2px solid var(--border-primary);
+  border: 3px solid var(--border-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -49,7 +49,7 @@
   background: var(--accent-primary);
   border-color: var(--accent-primary);
   color: white;
-  box-shadow: 0 0 20px rgba(106, 89, 196, 0.3);
+  box-shadow: var(--shadow-sm);
 }
 
 .step.completed .step-number {
@@ -149,7 +149,7 @@
 /* Course Card */
 .enroll-course-card {
   background: var(--bg-card);
-  border: 1px solid var(--border-primary);
+  border: 3px solid var(--border-primary);
   border-radius: var(--radius-lg);
   overflow: hidden;
   transition: all var(--transition-base);
@@ -157,7 +157,7 @@
 
 .enroll-course-card:hover {
   border-color: var(--border-secondary);
-  box-shadow: 0 12px 40px rgba(106, 89, 196, 0.1);
+  box-shadow: var(--shadow-sm);
 }
 
 .enroll-course-image {
@@ -203,7 +203,7 @@
 /* How It Works Card */
 .enroll-info-card {
   background: var(--bg-card);
-  border: 1px solid var(--border-primary);
+  border: 3px solid var(--border-primary);
   border-radius: var(--radius-lg);
   padding: var(--space-6);
 }
@@ -249,7 +249,7 @@
 /* ─── RIGHT SIDE: FORM ─── */
 .enroll-right {
   background: var(--bg-card);
-  border: 1px solid var(--border-primary);
+  border: 3px solid var(--border-primary);
   border-radius: var(--radius-lg);
   padding: var(--space-8);
 }
@@ -285,7 +285,7 @@
 .form-group select {
   padding: var(--space-3) var(--space-4);
   background: var(--bg-hover);
-  border: 1px solid var(--border-primary);
+  border: 3px solid var(--border-primary);
   border-radius: var(--radius-md);
   color: var(--text-primary);
   font-size: var(--text-base);
@@ -297,7 +297,7 @@
 .form-group select:focus {
   outline: none;
   border-color: var(--accent-primary);
-  box-shadow: 0 0 0 3px rgba(106, 89, 196, 0.1);
+  box-shadow: var(--shadow-sm);
 }
 
 .form-group input::placeholder {
@@ -331,7 +331,7 @@
 .country-select {
   padding: var(--space-3) var(--space-2);
   background: var(--bg-hover);
-  border: 1px solid var(--border-primary);
+  border: 3px solid var(--border-primary);
   border-radius: var(--radius-md);
   color: var(--text-primary);
   font-size: var(--text-sm);
@@ -350,7 +350,7 @@
 .country-select:focus {
   outline: none;
   border-color: var(--accent-primary);
-  box-shadow: 0 0 0 3px rgba(106, 89, 196, 0.1);
+  box-shadow: var(--shadow-sm);
 }
 
 #enroll-phone {
@@ -367,7 +367,7 @@
 /* Verification Section */
 .form-verification {
   background: var(--bg-hover);
-  border: 1px solid var(--border-primary);
+  border: 3px solid var(--border-primary);
   border-radius: var(--radius-md);
   padding: var(--space-5);
   margin-top: var(--space-2);
@@ -557,7 +557,7 @@
   max-width: 600px;
   margin: 0 auto;
   background: var(--bg-card);
-  border: 1px solid var(--border-primary);
+  border: 3px solid var(--border-primary);
   border-radius: var(--radius-xl);
   padding: var(--space-10);
 }
@@ -577,7 +577,7 @@
   background: rgba(249, 154, 0, 0.1);
   border: 2px solid rgba(249, 154, 0, 0.3);
   border-radius: 50%;
-  color: #F99A00;
+  color: var(--huna-orange);
 }
 
 .status-icon svg {
@@ -642,7 +642,7 @@
 
 .status-badge.pending {
   background: rgba(249, 154, 0, 0.15);
-  color: #F99A00;
+  color: var(--huna-orange);
   border: 1px solid rgba(249, 154, 0, 0.2);
 }
 
@@ -674,7 +674,7 @@
   border-radius: var(--radius-full);
   overflow: hidden;
   margin-bottom: var(--space-3);
-  border: 1px solid var(--border-primary);
+  border: 3px solid var(--border-primary);
 }
 
 .referral-progress-fill {
@@ -734,7 +734,7 @@
   margin: 0 auto;
   text-align: center;
   background: var(--bg-card);
-  border: 1px solid var(--border-primary);
+  border: 3px solid var(--border-primary);
   border-radius: var(--radius-xl);
   padding: var(--space-10);
 }
@@ -814,7 +814,7 @@
   padding: var(--space-5);
   background: var(--bg-hover);
   border-radius: var(--radius-lg);
-  border: 1px solid var(--border-primary);
+  border: 3px solid var(--border-primary);
 }
 
 /* Share Section */
@@ -873,7 +873,7 @@
 .share-btn.copy {
   background: var(--bg-hover);
   color: var(--text-secondary);
-  border: 1px solid var(--border-primary);
+  border: 3px solid var(--border-primary);
 }
 
 .share-btn.copy:hover {

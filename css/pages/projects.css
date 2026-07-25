@@ -35,7 +35,7 @@
 
 .project-card {
   background: var(--bg-card);
-  border: 1px solid var(--border-primary);
+  border: 3px solid var(--border-primary);
   border-radius: var(--radius-xl);
   overflow: hidden;
   transition: all var(--transition-base);
@@ -70,7 +70,7 @@
 .project-card .card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(13, 19, 43, 0.9) 0%, rgba(13, 19, 43, 0.3) 50%, transparent 100%);
+  background: linear-gradient(to top, rgba(23, 21, 15, 0.85) 0%, rgba(23, 21, 15, 0.25) 50%, transparent 100%);
   opacity: 0;
   transition: opacity var(--transition-base);
   display: flex;
@@ -113,9 +113,9 @@
 }
 
 .status-badge.in-progress {
-  background: rgba(0, 187, 176, 0.15);
+  background: var(--bg-hover);
   color: var(--huna-teal);
-  border: 1px solid rgba(0, 187, 176, 0.2);
+  border: 2px solid var(--huna-teal);
 }
 
 .status-badge.completed {
@@ -143,9 +143,9 @@
   font-size: var(--text-xs);
   font-weight: var(--font-medium);
   border-radius: var(--radius-sm);
-  background: rgba(106, 89, 196, 0.1);
-  color: var(--huna-purple);
-  border: 1px solid rgba(106, 89, 196, 0.15);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: 2px solid var(--border-primary);
 }
 
 .project-card .card-footer {
@@ -251,7 +251,7 @@
   
   .project-card .card-overlay {
     opacity: 1;
-    background: linear-gradient(to top, rgba(13, 19, 43, 0.8) 0%, transparent 60%);
+    background: linear-gradient(to top, rgba(23, 21, 15, 0.75) 0%, transparent 60%);
   }
 }
 

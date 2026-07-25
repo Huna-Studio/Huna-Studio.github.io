@@ -16,31 +16,7 @@
 }
 
 .cta-bg {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.cta-bg .orb-1 {
-  width: 600px;
-  height: 600px;
-  background: var(--huna-purple);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0.08;
-  filter: blur(120px);
-}
-
-.cta-bg .orb-2 {
-  width: 400px;
-  height: 400px;
-  background: var(--huna-teal);
-  top: 30%;
-  right: 20%;
-  opacity: 0.06;
-  filter: blur(100px);
-  animation-delay: 3s;
+  display: none;
 }
 
 .cta-content {
@@ -49,20 +25,25 @@
   text-align: center;
   max-width: 700px;
   margin: 0 auto;
+  padding: clamp(36px, 6vw, 60px);
+  background: var(--huna-blue);
+  border: 3.5px solid var(--border-primary);
+  border-radius: var(--radius-xl);
+  box-shadow: 9px 9px 0 var(--border-primary);
 }
 
 .cta-title {
-  font-size: var(--text-5xl);
-  font-weight: var(--font-extrabold);
-  margin-bottom: var(--space-6);
-  line-height: 1.1;
+  color: var(--text-inverse);
+  text-shadow: 4px 4px 0 var(--border-primary);
+  margin-bottom: var(--space-4);
 }
 
 .cta-desc {
-  font-size: var(--text-xl);
-  color: var(--text-secondary);
-  margin-bottom: var(--space-10);
-  line-height: 1.7;
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: #EAF1FF;
+  margin-bottom: var(--space-8);
+  line-height: 1.6;
 }
 
 .cta-buttons {
@@ -106,17 +87,21 @@
   gap: var(--space-2);
 }
 
-.newsletter-form .form-input {
+.newsletter-form .form-input,
+.newsletter-form .input-group input {
   flex: 1;
   background: var(--bg-card);
-  border: 1px solid var(--border-secondary);
-  border-radius: var(--radius-full);
+  color: var(--text-primary);
+  border: 3px solid var(--border-secondary);
+  border-radius: var(--radius-md);
   padding: var(--space-3) var(--space-5);
 }
 
-.newsletter-form .form-input:focus {
-  border-color: var(--accent-primary);
-  box-shadow: 0 0 0 3px rgba(106, 89, 196, 0.15);
+.newsletter-form .form-input:focus,
+.newsletter-form .input-group input:focus {
+  outline: none;
+  border-color: var(--border-secondary);
+  box-shadow: var(--shadow-sm);
 }
 
 .form-message {
