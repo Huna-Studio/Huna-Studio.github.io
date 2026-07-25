@@ -499,7 +499,7 @@ async function handleSubmit(e) {
   if (supabase) {
     try {
       const { error } = await supabase
-        .from('enrollments')
+        .from('enrollments_backup')
         .insert([{
           name: enrollmentData.name,
           email: enrollmentData.email,
