@@ -564,7 +564,7 @@ async function incrementReferralCount(referralCode) {
   try {
     // First, get current count
     const { data: referrers, error: fetchError } = await supabase
-      .from('enrollments')
+      .from('enrollments_backup')
       .select('referral_count, active')
       .eq('user_referral_code', referralCode)
       .limit(1);
