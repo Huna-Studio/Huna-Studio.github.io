@@ -2,15 +2,6 @@
    HUNA Router (Page Transitions)
    ============================================ */
 
-// Pages that redirect to Coming Soon
-const COMING_SOON_ROUTES = [
-  '/courses',
-  '/projects',
-  '/volunteer',
-  '/contact'
-  // Add more as needed
-];
-
 export class Router {
   constructor() {
     this.currentPage = '';
@@ -28,32 +19,15 @@ export class Router {
       if (link.hostname !== window.location.hostname) return;
       
       e.preventDefault();
-      
-      // Check if this route is coming soon
-      const path = new URL(link.href).pathname;
-      if (this.isComingSoon(path)) {
-        this.navigate('/pages/coming-soon.html');
-        return;
-      }
-      
       this.navigate(link.href);
     });
-    
+
     // Handle browser back/forward
     window.addEventListener('popstate', () => {
       this.loadPage(window.location.href, false);
     });
   }
-  
-  isComingSoon(path) {
-    // Normalize path (remove trailing slash, handle index)
-    const normalized = path.replace(/\/$/, '') || '/';
-    return COMING_SOON_ROUTES.some(route => {
-      const routeNormalized = route.replace(/\/$/, '');
-      return normalized === routeNormalized || normalized.startsWith(routeNormalized + '/');
-    });
-  }
-  
+
   async navigate(url) {
     if (this.isTransitioning) return;
     this.isTransitioning = true;

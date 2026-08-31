@@ -9,12 +9,7 @@
 }
 
 .testimonials-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 30% 50%, rgba(106, 89, 196, 0.03) 0%, transparent 50%),
-              radial-gradient(ellipse at 70% 50%, rgba(0, 187, 176, 0.03) 0%, transparent 50%);
-  pointer-events: none;
+  display: none;
 }
 
 .testimonials-carousel {
@@ -60,7 +55,7 @@
   justify-content: center;
   border-radius: var(--radius-full);
   background: var(--bg-card);
-  border: 1px solid var(--border-primary);
+  border: 3px solid var(--border-primary);
   color: var(--text-secondary);
   transition: all var(--transition-fast);
   cursor: pointer;

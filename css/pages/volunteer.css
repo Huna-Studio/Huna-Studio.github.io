@@ -20,7 +20,7 @@
 
 .benefit-card {
   background: var(--bg-card);
-  border: 1px solid var(--border-primary);
+  border: 3px solid var(--border-primary);
   border-radius: var(--radius-xl);
   padding: var(--space-8);
   text-align: center;
@@ -66,7 +66,7 @@
 
 .role-card {
   background: var(--bg-card);
-  border: 1px solid var(--border-primary);
+  border: 3px solid var(--border-primary);
   border-radius: var(--radius-xl);
   padding: var(--space-8);
   transition: all var(--transition-base);
@@ -88,7 +88,7 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-lg);
-  background: rgba(106, 89, 196, 0.1);
+  background: var(--bg-hover);
   color: var(--accent-primary);
   flex-shrink: 0;
 }
@@ -138,7 +138,7 @@
 
 .volunteer-form {
   background: var(--bg-card);
-  border: 1px solid var(--border-primary);
+  border: 3px solid var(--border-primary);
   border-radius: var(--radius-xl);
   padding: var(--space-10);
 }
@@ -162,7 +162,7 @@
   gap: var(--space-3);
   padding: var(--space-3) var(--space-4);
   background: var(--bg-tertiary);
-  border: 1px solid var(--border-primary);
+  border: 3px solid var(--border-primary);
   border-radius: var(--radius-md);
   cursor: pointer;
   transition: all var(--transition-fast);
@@ -170,7 +170,7 @@
 
 .skill-checkbox:hover {
   border-color: var(--accent-primary);
-  background: rgba(106, 89, 196, 0.05);
+  background: var(--bg-hover);
 }
 
 .skill-checkbox input[type="checkbox"] {
@@ -182,7 +182,7 @@
 
 .skill-checkbox input:checked + .skill-label,
 .skill-checkbox:has(input:checked) {
-  background: rgba(106, 89, 196, 0.1);
+  background: var(--bg-hover);
   border-color: var(--accent-primary);
   color: var(--accent-primary);
 }
@@ -197,7 +197,7 @@
 
 /* File Upload */
 .file-upload {
-  border: 2px dashed var(--border-secondary);
+  border: 3px dashed var(--border-secondary);
   border-radius: var(--radius-lg);
   padding: var(--space-8);
   text-align: center;
@@ -208,7 +208,7 @@
 .file-upload:hover,
 .file-upload.dragover {
   border-color: var(--accent-primary);
-  background: rgba(106, 89, 196, 0.05);
+  background: var(--bg-hover);
 }
 
 .file-upload input[type="file"] {

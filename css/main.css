@@ -274,7 +274,7 @@ html.lenis {
 
 /* FAQ Accordion */
 .accordion-item {
-  border: 1px solid var(--border-primary);
+  border: 3px solid var(--border-primary);
   border-radius: var(--radius-lg);
   overflow: hidden;
   margin-bottom: var(--space-4);

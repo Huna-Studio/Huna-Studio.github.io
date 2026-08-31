@@ -10,42 +10,54 @@ body {
 }
 
 /* Headings */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+.hero-title, .section-title, .cta-title {
+  font-family: var(--font-heading);
+  letter-spacing: 0.02em;
+  text-wrap: balance;
+}
+
 h1, .h1 {
   font-size: var(--text-4xl);
-  font-weight: var(--font-extrabold);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  font-weight: 400;
+  line-height: 0.95;
 }
 
 h2, .h2 {
   font-size: var(--text-3xl);
-  font-weight: var(--font-bold);
-  line-height: 1.2;
-  letter-spacing: -0.01em;
+  font-weight: 400;
+  line-height: 0.98;
 }
 
 h3, .h3 {
   font-size: var(--text-2xl);
-  font-weight: var(--font-semibold);
-  line-height: 1.3;
+  font-weight: 400;
+  line-height: 1.05;
 }
 
 h4, .h4 {
+  font-family: var(--font-primary);
   font-size: var(--text-xl);
   font-weight: var(--font-semibold);
   line-height: 1.4;
+  letter-spacing: 0;
 }
 
 h5, .h5 {
+  font-family: var(--font-primary);
   font-size: var(--text-lg);
   font-weight: var(--font-medium);
   line-height: 1.4;
+  letter-spacing: 0;
 }
 
 h6, .h6 {
+  font-family: var(--font-primary);
   font-size: var(--text-base);
   font-weight: var(--font-medium);
   line-height: 1.5;
+  letter-spacing: 0;
 }
 
 /* Text utilities */

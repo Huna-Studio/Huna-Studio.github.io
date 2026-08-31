@@ -34,7 +34,7 @@
 
 .about-card {
   background: var(--bg-card);
-  border: 1px solid var(--border-primary);
+  border: 3px solid var(--border-primary);
   border-radius: var(--radius-xl);
   padding: var(--space-10);
   text-align: center;
@@ -80,7 +80,7 @@
 
 .value-card {
   background: var(--bg-card);
-  border: 1px solid var(--border-primary);
+  border: 3px solid var(--border-primary);
   border-radius: var(--radius-lg);
   padding: var(--space-8);
   transition: all var(--transition-base);
@@ -168,7 +168,7 @@
 
 .timeline-item:hover::before {
   background: var(--accent-primary);
-  box-shadow: 0 0 0 6px rgba(106, 89, 196, 0.2);
+  box-shadow: var(--shadow-sm);
 }
 
 .timeline-item:last-child {
@@ -203,7 +203,7 @@
 
 .team-card {
   background: var(--bg-card);
-  border: 1px solid var(--border-primary);
+  border: 3px solid var(--border-primary);
   border-radius: var(--radius-xl);
   overflow: hidden;
   transition: all var(--transition-base);

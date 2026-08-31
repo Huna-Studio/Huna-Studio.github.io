@@ -8,14 +8,17 @@
 
 .form-label {
   display: block;
-  font-size: var(--text-sm);
-  font-weight: var(--font-medium);
+  font-family: var(--font-label);
+  font-size: 12.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
   color: var(--text-primary);
   margin-bottom: var(--space-2);
 }
 
 .form-label .required {
-  color: var(--huna-orange);
+  color: var(--huna-red);
   margin-left: var(--space-1);
 }
 
@@ -33,7 +36,7 @@
   font-family: var(--font-primary);
   color: var(--text-primary);
   background: var(--bg-secondary);
-  border: 1.5px solid var(--border-primary);
+  border: 3px solid var(--border-primary);
   border-radius: var(--radius-md);
   transition: all var(--transition-base);
   outline: none;
@@ -47,8 +50,8 @@
 .form-input:focus,
 .form-textarea:focus,
 .form-select:focus {
-  border-color: var(--accent-primary);
-  box-shadow: 0 0 0 3px rgba(106, 89, 196, 0.15);
+  border-color: var(--border-primary);
+  box-shadow: var(--shadow-sm);
   background: var(--bg-card);
 }
 
@@ -151,17 +154,18 @@
 
 /* File upload */
 .file-upload {
-  border: 2px dashed var(--border-secondary);
+  border: 3px dashed var(--border-secondary);
   border-radius: var(--radius-lg);
   padding: var(--space-8);
   text-align: center;
   transition: all var(--transition-base);
   cursor: pointer;
+  background: var(--bg-primary);
 }
 
 .file-upload:hover {
-  border-color: var(--accent-primary);
-  background: rgba(106, 89, 196, 0.05);
+  border-color: var(--huna-red);
+  background: var(--bg-hover);
 }
 
 .file-upload-icon {
