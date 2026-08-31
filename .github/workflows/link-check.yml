@@ -19,5 +19,6 @@ jobs:
           args: >-
             --no-progress
             --exclude-loopback
+            --root-dir .
             '**/*.html'
           fail: true
